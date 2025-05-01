@@ -8,9 +8,9 @@ The repository to host:
 
 * Personal AI assistant that is available at any your device and can be hosted on your hardware or on in the cloud with easy migrations and synchronization between them.
 
-
 # [ROADMAP](https://github.com/deep-assistant/master-plan/issues/4)
 
+* [Publish agreement in repository https://github.com/deep-assistant/agreement](https://github.com/deep-assistant/master-plan/issues/7)
 * [VK bot (based on https://vk.com/gptutor) additional to the VK mini app](https://github.com/deep-assistant/master-plan/issues/1) 
 * [Web app (available from the browser)](https://github.com/deep-assistant/master-plan/issues/2)
 * [Standalone Desktop (electron) application (macOS, Linux, Windows)](https://github.com/deep-assistant/master-plan/issues/3)
