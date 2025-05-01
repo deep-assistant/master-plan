@@ -13,7 +13,7 @@ The repository to host:
 
 * [VK bot (based on https://vk.com/gptutor) additional to the VK mini app](https://github.com/deep-assistant/master-plan/issues/1) 
 * [Web app (available from the browser)](https://github.com/deep-assistant/master-plan/issues/2)
-* Standalone Desktop (electron) application (macOS, Linux, Windows)
+* [Standalone Desktop (electron) application (macOS, Linux, Windows)](https://github.com/deep-assistant/master-plan/issues/3)
 * Standalone iOS/iPadOS application at AppStore
 * Standalone Android application at Google Play
 
