@@ -4,7 +4,7 @@ The repository to host:
 * [issues](https://github.com/deep-assistant/master-plan/issues) that related to entire organization;
 * [community discussions](https://github.com/deep-assistant/master-plan/discussions).
 
-# End Goal
+# End Goal / Mission 
 
 * Personal AI assistant that is available at any your device and can be hosted on your hardware or on in the cloud with easy migrations and synchronization between them.
 
