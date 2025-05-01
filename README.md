@@ -6,7 +6,8 @@ The repository to host:
 
 # End Goal
 
-* Personal AI assistant that is available at any your device and can be hosted on your hardware on in the cloud.
+* Personal AI assistant that is available at any your device and can be hosted on your hardware or on in the cloud with easy migrations and synchronization between them.
+
 
 # ROADMAP
 
