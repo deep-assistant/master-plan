@@ -11,7 +11,7 @@ The repository to host:
 
 # ROADMAP
 
-* VK bot (based on https://vk.com/gptutor) additional to the VK mini app
+* [VK bot (based on https://vk.com/gptutor) additional to the VK mini app](https://github.com/deep-assistant/master-plan/issues/1) 
 * Web app (available from the browser)
 * Standalone Desktop (electron) application (macOS, Linux, Windows)
 * Standalone iOS/iPadOS application at AppStore
