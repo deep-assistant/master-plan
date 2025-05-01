@@ -11,6 +11,7 @@ The repository to host:
 # [ROADMAP](https://github.com/deep-assistant/master-plan/issues/4)
 
 * [Publish agreement in repository https://github.com/deep-assistant/agreement](https://github.com/deep-assistant/master-plan/issues/7)
+* https://github.com/deep-assistant/master-plan/issues/7
 * [VK bot (based on https://vk.com/gptutor) additional to the VK mini app](https://github.com/deep-assistant/master-plan/issues/1) 
 * [Web app (available from the browser)](https://github.com/deep-assistant/master-plan/issues/2)
 * [Standalone Desktop (electron) application (macOS, Linux, Windows)](https://github.com/deep-assistant/master-plan/issues/3)
