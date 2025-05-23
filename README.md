@@ -13,7 +13,7 @@ The repository to host:
 * [x] [Publish agreement in repository https://github.com/deep-assistant/agreement](https://github.com/deep-assistant/master-plan/issues/7)
 * [ ] [Make web-capture microservice work as expected and integrate it with Telegram bot](https://github.com/deep-assistant/master-plan/issues/10)
 * [ ] Support [OpenAI Responses API standard](https://platform.openai.com/docs/api-reference/responses)
-* [ ] Provide OpenAPI YAML and JSON specification for all our APIs
+* [ ] Provide [OpenAPI YAML and JSON specification](https://www.openapis.org) for all our APIs
 * [ ] [Support Cursor by our API Gateway for OpenAI models](https://github.com/deep-assistant/master-plan/issues/8)
 * [ ] [VK bot (based on https://vk.com/gptutor) additional to the VK mini app](https://github.com/deep-assistant/master-plan/issues/1) 
 * [ ] [Web app (available from the browser)](https://github.com/deep-assistant/master-plan/issues/2)
