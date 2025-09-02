@@ -9,289 +9,287 @@ The repository to host:
 * Personal AI assistant that is available at any your device and can be hosted on your hardware or on in the cloud with easy migrations and synchronization between them.
 
 # [ROADMAP](https://github.com/deep-assistant/master-plan/issues/4)
+### 🚀 **STAGE 1: Quick Improvements**
 
+- [ ] **1. Error Message Clarity**
+    - **Task:** Make standard error messages more user-friendly to improve feedback during failures.
+    - **Link:** [#46](https://github.com/deep-assistant/telegram-bot/issues/46)
+    - **Priority:** High | **Complexity:** Low
 
-### 🚀 **ЭТАП 1: Быстрые улучшения*
+- [ ] **2. Model Descriptions**
+    - **Task:** Add detailed descriptions for each model so users understand their capabilities and differences.
+    - **Link:** [#43](https://github.com/deep-assistant/telegram-bot/issues/43)
+    - **Priority:** High | **Complexity:** Low
 
-- [ ] **1. Понятность сообщений об ошибках**
-    - **Задача:** Сделать стандартное сообщение об ошибке более понятным для пользователя, чтобы улучшить обратную связь при сбоях.
-    - **Ссылка:** [#46](https://github.com/deep-assistant/telegram-bot/issues/46)
-    - **Приоритет:** Высокий | **Сложность:** Низкая
+- [ ] **3. Brand Names**
+    - **Task:** Ensure accurate use of brand names.
+    - **Link:** [#44](https://github.com/deep-assistant/telegram-bot/issues/44)
+    - **Priority:** Medium | **Complexity:** Low
 
-- [ ] **2. Описание моделей**
-    - **Задача:** Добавить подробные описания для каждой модели, чтобы пользователи понимали их возможности и различия.
-    - **Ссылка:** [#43](https://github.com/deep-assistant/telegram-bot/issues/43)
-    - **Приоритет:** Высокий | **Сложность:** Низкая
+- [ ] **4. GUID in Errors**
+    - **Task:** Show user GUID in error messages.
+    - **Link:** [#69](https://github.com/deep-assistant/telegram-bot/issues/69)
+    - **Priority:** Medium | **Complexity:** Low
 
-- [ ] **3. Названия брендов**
-    - **Задача:** Обеспечить точное использование названий брендов.
-    - **Ссылка:** [#44](https://github.com/deep-assistant/telegram-bot/issues/44)
-    - **Приоритет:** Средний | **Сложность:** Низкая
-
-- [ ] **4. GUID в ошибках**
-    - **Задача:** Показывать GUID пользователя в сообщениях об ошибках.
-    - **Ссылка:** [#69](https://github.com/deep-assistant/telegram-bot/issues/69)
-    - **Приоритет:** Средний | **Сложность:** Низкая
-
-- [ ] **5. Оценка времени выполнения**
-    - **Задача:** Реализовать автоматический расчет времени запроса.
-    - **Ссылка:** [#58](https://github.com/deep-assistant/telegram-bot/issues/58)
-    - **Приоритет:** Средний | **Сложность:** Низкая
+- [ ] **5. Execution Time Estimation**
+    - **Task:** Implement automatic request time calculation.
+    - **Link:** [#58](https://github.com/deep-assistant/telegram-bot/issues/58)
+    - **Priority:** Medium | **Complexity:** Low
 
 ---
 
-### 🎯 **ЭТАП 2: Критически важные функции**
+### 🎯 **STAGE 2: Critical Functions**
 
 - [ ] **6. Rate Limit**
-    - **Задача:** Реализовать ограничение частоты запросов.
-    - **Ссылка:** [#17](https://github.com/deep-assistant/telegram-bot/issues/17)
-    - **Приоритет:** Критический | **Сложность:** Средняя
+    - **Task:** Implement request rate limiting.
+    - **Link:** [#17](https://github.com/deep-assistant/telegram-bot/issues/17)
+    - **Priority:** Critical | **Complexity:** Medium
 
-- [ ] **7. Настройка CI/CD**
-    - **Задача:** Автоматизировать сборку, тестирование и развертывание.
-    - **Ссылка:** [#13](https://github.com/deep-assistant/telegram-bot/issues/13)
-    - **Приоритет:** Критический | **Сложность:** Высокая
+- [ ] **7. CI/CD Setup**
+    - **Task:** Automate build, testing, and deployment.
+    - **Link:** [#13](https://github.com/deep-assistant/telegram-bot/issues/13)
+    - **Priority:** Critical | **Complexity:** High
 
-- [ ] **8. Поддержка Webhook**
-    - **Задача:** Перейти на использование веб-хуков Telegram.
-    - **Ссылка:** [#61](https://github.com/deep-assistant/telegram-bot/issues/61)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
+- [ ] **8. Webhook Support**
+    - **Task:** Switch to using Telegram webhooks.
+    - **Link:** [#61](https://github.com/deep-assistant/telegram-bot/issues/61)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **9. Уникальные сообщения об ошибках**
-    - **Задача:** Обрабатывать каждую ошибку уникальным сообщением.
-    - **Ссылка:** [#45](https://github.com/deep-assistant/telegram-bot/issues/45)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
----
-
-### 🔧 **ЭТАП 3: Улучшение пользовательского опыта**
-
-- [ ] **10. Кнопка "Продолжить"**
-    - **Задача:** Добавить кнопку для удобного возобновления диалога или генерации.
-    - **Ссылка:** [#87](https://github.com/deep-assistant/telegram-bot/issues/87)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **11. Свои системные сообщения**
-    - **Задача:** Дать пользователям возможность задавать свои системные промпты.
-    - **Ссылка:** [#14](https://github.com/deep-assistant/telegram-bot/issues/14)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **12. Управление контекстами**
-    - **Задача:** Сохранять и переключать контексты диалогов.
-    - **Ссылка:** [#78](https://github.com/deep-assistant/telegram-bot/issues/78)
-    - **Приоритет:** Высокий | **Сложность:** Высокая
-
-- [ ] **13. Переключение контекста (общий/личный)**
-    - **Задача:** Дать возможность переключать контекст.
-    - **Ссылка:** [#81](https://github.com/deep-assistant/telegram-bot/issues/81)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **14. Очистка контекста**
-    - **Задача:** Спрашивать пользователя об очистке контекста при неактивности.
-    - **Ссылка:** [#41](https://github.com/deep-assistant/telegram-bot/issues/41)
-    - **Приоритет:** Средний | **Сложность:** Средняя
-
-- [ ] **15. Тайм-аут ввода**
-    - **Задача:** Внедрить тайм-аут и удаление промпта при неактивности.
-    - **Ссылка:** [#75](https://github.com/deep-assistant/telegram-bot/issues/75)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **9. Unique Error Messages**
+    - **Task:** Handle each error with a unique message.
+    - **Link:** [#45](https://github.com/deep-assistant/telegram-bot/issues/45)
+    - **Priority:** High | **Complexity:** Medium
 
 ---
 
-### 🌐 **ЭТАП 4: Расширение функциональности**
+### 🔧 **STAGE 3: User Experience Improvements**
 
-- [ ] **16. Поддержка веб-поиска**
-    - **Задача:** Добавить веб-поиск для предоставления актуальной информации.
-    - **Ссылка:** [#52](https://github.com/deep-assistant/telegram-bot/issues/52)
-    - **Приоритет:** Высокий | **Сложность:** Высокая
+- [ ] **10. "Continue" Button**
+    - **Task:** Add a button for convenient dialog or generation resumption.
+    - **Link:** [#87](https://github.com/deep-assistant/telegram-bot/issues/87)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **17. Имя файла из URL**
-    - **Задача:** Автоматически извлекать имя файла из URL генерации.
-    - **Ссылка:** [#60](https://github.com/deep-assistant/telegram-bot/issues/60)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **11. Custom System Messages**
+    - **Task:** Allow users to set their own system prompts.
+    - **Link:** [#14](https://github.com/deep-assistant/telegram-bot/issues/14)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **18. Поддержка PNG для удаления фона**
-    - **Задача:** Добавить поддержку PNG.
-    - **Ссылка:** [#40](https://github.com/deep-assistant/telegram-bot/issues/40)
-    - **Приоритет:** Средний | **Сложность:** Низкая
+- [ ] **12. Context Management**
+    - **Task:** Save and switch dialog contexts.
+    - **Link:** [#78](https://github.com/deep-assistant/telegram-bot/issues/78)
+    - **Priority:** High | **Complexity:** High
 
-- [ ] **19. Режим нескольких сообщений**
-    - **Задача:** Обрабатывать несколько сообщений как один запрос.
-    - **Ссылка:** [#16](https://github.com/deep-assistant/telegram-bot/issues/16)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **13. Context Switching (General/Personal)**
+    - **Task:** Allow context switching capability.
+    - **Link:** [#81](https://github.com/deep-assistant/telegram-bot/issues/81)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **20. Обработка нескольких аудио**
-    - **Задача:** Улучшить обработку одновременных аудиосообщений.
-    - **Ссылка:** [#50](https://github.com/deep-assistant/telegram-bot/issues/50)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **14. Context Cleanup**
+    - **Task:** Ask user about context cleanup during inactivity.
+    - **Link:** [#41](https://github.com/deep-assistant/telegram-bot/issues/41)
+    - **Priority:** Medium | **Complexity:** Medium
 
----
-
-### 🤖 **ЭТАП 5: Новые модели и режимы**
-
-- [ ] **21. Добавление Grok**
-    - **Задача:** Интегрировать новую модель "grok".
-    - **Ссылка:** [#84](https://github.com/deep-assistant/telegram-bot/issues/84)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **22. Добавление GPT-5**
-    - **Задача:** Интегрировать модель GPT-5.
-    - **Ссылка:** [#83](https://github.com/deep-assistant/telegram-bot/issues/83)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **23. Режим "Экспресс-ответы"**
-    - **Задача:** Добавить режим для быстрой обработки запросов.
-    - **Ссылка:** [#89](https://github.com/deep-assistant/telegram-bot/issues/89)
-    - **Приоритет:** Средний | **Сложность:** Средняя
-
-- [ ] **24. Режим "Юрист"**
-    - **Задача:** Добавить системное сообщение для юридических консультаций.
-    - **Ссылка:** [#51](https://github.com/deep-assistant/telegram-bot/issues/51)
-    - **Приоритет:** Средний | **Сложность:** Низкая
-
-- [ ] **25. Возвращение Suno**
-    - **Задача:** Вернуть интеграцию с музыкальной моделью Suno.
-    - **Ссылка:** [#80](https://github.com/deep-assistant/telegram-bot/issues/80)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **15. Input Timeout**
+    - **Task:** Implement timeout and prompt deletion during inactivity.
+    - **Link:** [#75](https://github.com/deep-assistant/telegram-bot/issues/75)
+    - **Priority:** Medium | **Complexity:** Medium
 
 ---
 
-### �� **ЭТАП 6: Мультимедиа и генерация**
+### 🌐 **STAGE 4: Functionality Expansion**
 
-- [ ] **26. Генерация видео**
-    - **Задача:** Внедрить поддержку генерации видео.
-    - **Ссылка:** [#79](https://github.com/deep-assistant/telegram-bot/issues/79)
-    - **Приоритет:** Средний | **Сложность:** Высокая
+- [ ] **16. Web Search Support**
+    - **Task:** Add web search to provide current information.
+    - **Link:** [#52](https://github.com/deep-assistant/telegram-bot/issues/52)
+    - **Priority:** High | **Complexity:** High
 
----
+- [ ] **17. Filename from URL**
+    - **Task:** Automatically extract filename from generation URL.
+    - **Link:** [#60](https://github.com/deep-assistant/telegram-bot/issues/60)
+    - **Priority:** Medium | **Complexity:** Medium
 
-### 🌍 **ЭТАП 7: Интернационализация и социальные функции**
+- [ ] **18. PNG Support for Background Removal**
+    - **Task:** Add PNG support.
+    - **Link:** [#40](https://github.com/deep-assistant/telegram-bot/issues/40)
+    - **Priority:** Medium | **Complexity:** Low
 
-- [ ] **27. Перевод бота**
-    - **Задача:** Перевести бота на английский и другие языки.
-    - **Ссылка:** [#38](https://github.com/deep-assistant/telegram-bot/issues/38), [#20](https://github.com/deep-assistant/telegram-bot/issues/20)
-    - **Приоритет:** Высокий | **Сложность:** Высокая
+- [ ] **19. Multi-Message Mode**
+    - **Task:** Process multiple messages as one request.
+    - **Link:** [#16](https://github.com/deep-assistant/telegram-bot/issues/16)
+    - **Priority:** Medium | **Complexity:** Medium
 
-- [ ] **28. Уведомление о рефералах**
-    - **Задача:** Настроить немедленное уведомление о активации бота другом.
-    - **Ссылка:** [#66](https://github.com/deep-assistant/telegram-bot/issues/66)
-    - **Приоритет:** Средний | **Сложность:** Средняя
-
----
-
-### 📊 **ЭТАП 8: Аналитика и мониторинг**
-
-- [ ] **29. Статистика**
-    - **Задача:** Разработать систему сбора и отображения статистики.
-    - **Ссылка:** [#90](https://github.com/deep-assistant/telegram-bot/issues/90)
-    - **Приоритет:** Средний | **Сложность:** Высокая
-
-- [ ] **30. Умный приоритет API**
-    - **Задача:** Внедрить умную систему приоритетов для запросов к API.
-    - **Ссылка:** [#85](https://github.com/deep-assistant/telegram-bot/issues/85)
-    - **Приоритет:** Средний | **Сложность:** Высокая
+- [ ] **20. Multiple Audio Processing**
+    - **Task:** Improve simultaneous audio message processing.
+    - **Link:** [#50](https://github.com/deep-assistant/telegram-bot/issues/50)
+    - **Priority:** Medium | **Complexity:** Medium
 
 ---
 
-### �� **ЭТАП 9: Продвинутые функции**
+### 🤖 **STAGE 5: New Models and Modes**
 
-- [ ] **31. Система напоминаний**
-    - **Задача:** Разработать систему напоминаний внутри бота.
-    - **Ссылка:** [#88](https://github.com/deep-assistant/telegram-bot/issues/88)
-    - **Приоритет:** Средний | **Сложность:** Высокая
+- [ ] **21. Grok Integration**
+    - **Task:** Integrate the new "grok" model.
+    - **Link:** [#84](https://github.com/deep-assistant/telegram-bot/issues/84)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **32. Режим чтения всех сообщений**
-    - **Задача:** Анализировать каждое сообщение в групповом чате.
-    - **Ссылка:** [#82](https://github.com/deep-assistant/telegram-bot/issues/82)
-    - **Приоритет:** Низкий | **Сложность:** Высокая
+- [ ] **22. GPT-5 Integration**
+    - **Task:** Integrate GPT-5 model.
+    - **Link:** [#83](https://github.com/deep-assistant/telegram-bot/issues/83)
+    - **Priority:** High | **Complexity:** Medium
 
-- [ ] **33. Репозиторий в контекст**
-    - **Задача:** Добавить возможность передавать репозиторий в контекст.
-    - **Ссылка:** [#24](https://github.com/deep-assistant/telegram-bot/issues/24)
-    - **Приоритет:** Средний | **Сложность:** Высокая
+- [ ] **23. "Express Responses" Mode**
+    - **Task:** Add mode for fast request processing.
+    - **Link:** [#89](https://github.com/deep-assistant/telegram-bot/issues/89)
+    - **Priority:** Medium | **Complexity:** Medium
 
-- [ ] **34. Баг-бот**
-    - **Задача:** Разработать "Баг-бота" для отправки отчетов об ошибках.
-    - **Ссылка:** [#86](https://github.com/deep-assistant/telegram-bot/issues/86)
-    - **Приоритет:** Средний | **Сложность:** Средняя
+- [ ] **24. "Lawyer" Mode**
+    - **Task:** Add system message for legal consultations.
+    - **Link:** [#51](https://github.com/deep-assistant/telegram-bot/issues/51)
+    - **Priority:** Medium | **Complexity:** Low
 
----
-
-### 💰 **ЭТАП 10: Монетизация**
-
-- [ ] **35. Модель оплаты от пользователя**
-    - **Задача:** Реализовать настраиваемую модель оплаты.
-    - **Ссылка:** [#18](https://github.com/deep-assistant/telegram-bot/issues/18)
-    - **Приоритет:** Средний | **Сложность:** Высокая
-
-- [ ] **36. Перевод "энергетических очков"**
-    - **Задача:** Позволить пользователям переводить внутреннюю валюту.
-    - **Ссылка:** [#22](https://github.com/deep-assistant/telegram-bot/issues/22)
-    - **Приоритет:** Низкий | **Сложность:** Высокая
+- [ ] **25. Suno Return**
+    - **Task:** Restore integration with Suno music model.
+    - **Link:** [#80](https://github.com/deep-assistant/telegram-bot/issues/80)
+    - **Priority:** Medium | **Complexity:** Medium
 
 ---
 
-### 📄 **ЭТАП 11: Документация и соглашения**
+### 🎬 **STAGE 6: Multimedia and Generation**
 
-- [ ] **37. Соглашение на GitHub Pages**
-    - **Задача:** Перенести пользовательское соглашение на GitHub Pages.
-    - **Ссылка:** [#12](https://github.com/deep-assistant/telegram-bot/issues/12)
-    - **Приоритет:** Низкий | **Сложность:** Низкая
-
----
-
-### 🏗️ **ЭТАП 12: Инфраструктура и API (Master Plan)**
-
-- [ ] **38. Web-capture микросервис**
-    - **Задача:** Сделать web-capture микросервис работающим как ожидается и интегрировать его с Telegram ботом
-    - **Ссылка:** [#10](https://github.com/deep-assistant/master-plan/issues/10)
-    - **Приоритет:** Средний | **Сложность:** Высокая
-
-- [ ] **39. Поддержка OpenAI Responses API стандарта**
-    - **Задача:** Поддержать стандарт OpenAI Responses API
-    - **Ссылка:** [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
-    - **Приоритет:** Высокий | **Сложность:** Средняя
-
-- [ ] **40. OpenAPI спецификация**
-    - **Задача:** Предоставить OpenAPI YAML и JSON спецификацию для всех наших API
-    - **Ссылка:** [OpenAPI](https://www.openapis.org)
-    - **Приоритет:** Средний | **Сложность:** Средняя
-
-- [ ] **41. Поддержка Cursor через API Gateway**
-    - **Задача:** Поддержать Cursor через наш API Gateway для OpenAI моделей
-    - **Ссылка:** [#8](https://github.com/deep-assistant/master-plan/issues/8)
-    - **Приоритет:** Высокий | **Сложность:** Высокая
+- [ ] **26. Video Generation**
+    - **Task:** Implement video generation support.
+    - **Link:** [#79](https://github.com/deep-assistant/telegram-bot/issues/79)
+    - **Priority:** Medium | **Complexity:** High
 
 ---
 
-### 📱 **ЭТАП 13: Мультиплатформенность (Master Plan)**
+### 🌍 **STAGE 7: Internationalization and Social Features**
 
-- [ ] **42. VK бот**
-    - **Задача:** Создать VK бот (на основе https://vk.com/gptutor) дополнительно к VK мини-приложению
-    - **Ссылка:** [#1](https://github.com/deep-assistant/master-plan/issues/1)
-    - **Приоритет:** Средний | **Сложность:** Высокая
+- [ ] **27. Bot Translation**
+    - **Task:** Translate bot to English and other languages.
+    - **Link:** [#38](https://github.com/deep-assistant/telegram-bot/issues/38), [#20](https://github.com/deep-assistant/telegram-bot/issues/20)
+    - **Priority:** High | **Complexity:** High
 
-- [ ] **43. Веб-приложение**
-    - **Задача:** Создать веб-приложение (доступное из браузера)
-    - **Ссылка:** [#2](https://github.com/deep-assistant/master-plan/issues/2)
-    - **Приоритет:** Высокий | **Сложность:** Очень высокая
+- [ ] **28. Referral Notifications**
+    - **Task:** Set up immediate notification when bot is activated by another user.
+    - **Link:** [#66](https://github.com/deep-assistant/telegram-bot/issues/66)
+    - **Priority:** Medium | **Complexity:** Medium
 
-- [ ] **44. Интеграция VS Code и GitHub Copilot**
-    - **Задача:** Интегрировать open-source VS Code и open-source GitHub Copilot в браузере как режим разработчика в веб-приложении
-    - **Ссылка:** [#9](https://github.com/deep-assistant/master-plan/issues/9)
-    - **Приоритет:** Средний | **Сложность:** Очень высокая
+---
 
-- [ ] **45. Настольное приложение (Electron)**
-    - **Задача:** Создать автономное настольное приложение (macOS, Linux, Windows)
-    - **Ссылка:** [#3](https://github.com/deep-assistant/master-plan/issues/3)
-    - **Приоритет:** Средний | **Сложность:** Очень высокая
+### 📊 **STAGE 8: Analytics and Monitoring**
 
-- [ ] **46. iOS/iPadOS приложение**
-    - **Задача:** Создать автономное iOS/iPadOS приложение в App Store
-    - **Ссылка:** [#5](https://github.com/deep-assistant/master-plan/issues/5)
-    - **Приоритет:** Средний | **Сложность:** Очень высокая
+- [ ] **29. Statistics**
+    - **Task:** Develop statistics collection and display system.
+    - **Link:** [#90](https://github.com/deep-assistant/telegram-bot/issues/90)
+    - **Priority:** Medium | **Complexity:** High
 
-- [ ] **47. Android приложение**
-    - **Задача:** Создать автономное Android приложение в Google Play
-    - **Ссылка:** [#6](https://github.com/deep-assistant/master-plan/issues/6)
-    - **Приоритет:** Средний | **Сложность:** Очень высокая
+- [ ] **30. Smart API Priority**
+    - **Task:** Implement smart priority system for API requests.
+    - **Link:** [#85](https://github.com/deep-assistant/telegram-bot/issues/85)
+    - **Priority:** Medium | **Complexity:** High
+
+---
+
+### ⚡ **STAGE 9: Advanced Features**
+
+- [ ] **31. Reminder System**
+    - **Task:** Develop reminder system within the bot.
+    - **Link:** [#88](https://github.com/deep-assistant/telegram-bot/issues/88)
+    - **Priority:** Medium | **Complexity:** High
+
+- [ ] **32. All Messages Reading Mode**
+    - **Task:** Analyze every message in group chat.
+    - **Link:** [#82](https://github.com/deep-assistant/telegram-bot/issues/82)
+    - **Priority:** Low | **Complexity:** High
+
+- [ ] **33. Repository in Context**
+    - **Task:** Add ability to pass repository to context.
+    - **Link:** [#24](https://github.com/deep-assistant/telegram-bot/issues/24)
+    - **Priority:** Medium | **Complexity:** High
+
+- [ ] **34. Bug Bot**
+    - **Task:** Develop "Bug Bot" for sending error reports.
+    - **Link:** [#86](https://github.com/deep-assistant/telegram-bot/issues/86)
+    - **Priority:** Medium | **Complexity:** Medium
+
+---
+
+### 💰 **STAGE 10: Monetization**
+
+- [ ] **35. User Payment Model**
+    - **Task:** Implement customizable payment model.
+    - **Link:** [#18](https://github.com/deep-assistant/telegram-bot/issues/18)
+    - **Priority:** Medium | **Complexity:** High
+
+- [ ] **36. "Energy Points" Transfer**
+    - **Task:** Allow users to transfer internal currency.
+    - **Link:** [#22](https://github.com/deep-assistant/telegram-bot/issues/22)
+    - **Priority:** Low | **Complexity:** High
+
+---
+
+### 📄 **STAGE 11: Documentation and Agreements**
+
+- [ ] **37. Agreement on GitHub Pages**
+    - **Task:** Move user agreement to GitHub Pages.
+    - **Link:** [#12](https://github.com/deep-assistant/telegram-bot/issues/12)
+    - **Priority:** Low | **Complexity:** Low
+
+---
+
+### 🏗️ **STAGE 12: Infrastructure and API (Master Plan)**
+
+- [ ] **38. Web-capture Microservice**
+    - **Task:** Make web-capture microservice work as expected and integrate it with Telegram bot
+    - **Link:** [#10](https://github.com/deep-assistant/master-plan/issues/10)
+    - **Priority:** Medium | **Complexity:** High
+
+- [ ] **39. OpenAI Responses API Standard Support**
+    - **Task:** Support OpenAI Responses API standard
+    - **Link:** [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
+    - **Priority:** High | **Complexity:** Medium
+
+- [ ] **40. OpenAPI Specification**
+    - **Task:** Provide OpenAPI YAML and JSON specification for all our APIs
+    - **Link:** [OpenAPI](https://www.openapis.org)
+    - **Priority:** Medium | **Complexity:** Medium
+
+- [ ] **41. Cursor Support via API Gateway**
+    - **Task:** Support Cursor through our API Gateway for OpenAI models
+    - **Link:** [#8](https://github.com/deep-assistant/master-plan/issues/8)
+    - **Priority:** High | **Complexity:** High
+
+---
+
+### 📱 **STAGE 13: Multi-platform**
+
+- [ ] **42. VK Bot**
+    - **Task:** Create VK bot (based on https://vk.com/gptutor) in addition to VK mini app
+    - **Link:** [#1](https://github.com/deep-assistant/master-plan/issues/1)
+    - **Priority:** Medium | **Complexity:** High
+
+- [ ] **43. Web Application**
+    - **Task:** Create web application (accessible from browser)
+    - **Link:** [#2](https://github.com/deep-assistant/master-plan/issues/2)
+    - **Priority:** High | **Complexity:** Very High
+
+- [ ] **44. VS Code and GitHub Copilot Integration**
+    - **Task:** Integrate open-source VS Code and open-source GitHub Copilot in browser as developer mode in web app
+    - **Link:** [#9](https://github.com/deep-assistant/master-plan/issues/9)
+    - **Priority:** Medium | **Complexity:** Very High
+
+- [ ] **45. Desktop Application (Electron)**
+    - **Task:** Create standalone desktop application (macOS, Linux, Windows)
+    - **Link:** [#3](https://github.com/deep-assistant/master-plan/issues/3)
+    - **Priority:** Medium | **Complexity:** Very High
+
+- [ ] **46. iOS/iPadOS Application**
+    - **Task:** Create standalone iOS/iPadOS application in App Store
+    - **Link:** [#5](https://github.com/deep-assistant/master-plan/issues/5)
+    - **Priority:** Medium | **Complexity:** Very High
+
+- [ ] **47. Android Application**
+    - **Task:** Create standalone Android application in Google Play
+    - **Link:** [#6](https://github.com/deep-assistant/master-plan/issues/6)
+    - **Priority:** Medium | **Complexity:** Very High
