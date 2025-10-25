@@ -4,7 +4,16 @@ The repository to host:
 * [issues](https://github.com/deep-assistant/master-plan/issues) that related to entire organization;
 * [community discussions](https://github.com/deep-assistant/master-plan/discussions).
 
-# End Goal / Mission 
+## Architecture Documentation
+
+Detailed architecture documentation for each project:
+
+- **[api-gateway](https://github.com/deep-assistant/api-gateway/blob/main/ARCHITECTURE.md)** - OpenAI-compatible API gateway with multi-provider failover
+- **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
+- **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
+- **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
+
+# End Goal / Mission
 
 * Personal AI assistant that is available at any your device and can be hosted on your hardware or on in the cloud with easy migrations and synchronization between them.
 
