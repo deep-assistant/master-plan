@@ -10,6 +10,7 @@ Detailed architecture documentation for each project:
 
 - **[api-gateway](https://github.com/deep-assistant/api-gateway/blob/main/ARCHITECTURE.md)** - OpenAI-compatible API gateway with multi-provider failover
 - **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
+- **[vk-bot](https://github.com/deep-assistant/master-plan/blob/issue-1-3afa1eac/VK-BOT-ARCHITECTURE.md)** - VK (VKontakte) bot with dual Python/JavaScript implementation *(in development)*
 - **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
 - **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
 
