@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Deep Assistant</h1>
+                <button id="new-chat-btn" class="btn-icon" title="New Chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="chat-history" id="chat-history">
+                <div class="chat-item active" data-chat-id="1">
+                    <span>New Chat</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <button id="settings-btn" class="btn-settings">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m6-12h-6m-6 0H1m17.66 5.66l-4.24 4.24m-7.08 0l-4.24-4.24m15.56 7.08l-4.24-4.24m-7.08 0l-4.24 4.24"></path>
+                    </svg>
+                    Settings
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="chat-container">
+                <div id="messages" class="messages">
+                    <div class="welcome-message">
+                        <h2>Welcome to Deep Assistant</h2>
+                        <p>Start a conversation by typing a message below.</p>
+                        <div class="info-notice">
+                            <strong>Note:</strong> Please configure your API settings before starting.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea
+                            id="message-input"
+                            placeholder="Type your message here..."
+                            rows="1"
+                        ></textarea>
+                        <button id="send-btn" class="btn-send" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Panel (hidden by default) -->
+            <div id="settings-panel" class="settings-panel hidden">
+                <div class="settings-header">
+                    <h2>Settings</h2>
+                    <button id="close-settings-btn" class="btn-close">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <label for="api-url">API Gateway URL:</label>
+                        <input
+                            type="text"
+                            id="api-url"
+                            class="input-field"
+                            placeholder="https://api.deep-assistant.com"
+                        />
+                    </div>
+                    <div class="setting-group">
+                        <label for="api-key">API Key:</label>
+                        <input
+                            type="password"
+                            id="api-key"
+                            class="input-field"
+                            placeholder="Enter your API key"
+                        />
+                    </div>
+                    <button id="save-settings-btn" class="btn-primary">Save Settings</button>
+                    <div id="settings-status" class="status-message hidden"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
