@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TITLE] - Public Facts Database</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>[TITLE]</h1>
+        <p class="fact-id">ID: [ID]</p>
+        <p class="fact-status status-[STATUS]">Status: [STATUS_TEXT]</p>
+        <div class="language-selector">
+            <label for="language-filter">Select Languages:</label>
+            <div class="language-checkboxes">
+                <label><input type="checkbox" class="lang-checkbox" value="en" checked> English</label>
+                <label><input type="checkbox" class="lang-checkbox" value="ru" checked> Русский</label>
+                <label><input type="checkbox" class="lang-checkbox" value="es" checked> Español</label>
+                <label><input type="checkbox" class="lang-checkbox" value="fr" checked> Français</label>
+                <label><input type="checkbox" class="lang-checkbox" value="de" checked> Deutsch</label>
+            </div>
+        </div>
+        <div style="margin-top: 15px;">
+            <a href="../index.html" class="button">Back to List</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Statement in all languages -->
+        <section>
+            <h2>Statement</h2>
+
+            <div class="lang-section" data-lang="en">
+                <h3>English <span class="lang-badge">EN</span></h3>
+                <p>[STATEMENT IN ENGLISH]</p>
+            </div>
+
+            <div class="lang-section" data-lang="ru">
+                <h3>Русский <span class="lang-badge">RU</span></h3>
+                <p>[STATEMENT IN RUSSIAN]</p>
+            </div>
+
+            <div class="lang-section" data-lang="es">
+                <h3>Español <span class="lang-badge">ES</span></h3>
+                <p>[STATEMENT IN SPANISH]</p>
+            </div>
+
+            <div class="lang-section" data-lang="fr">
+                <h3>Français <span class="lang-badge">FR</span></h3>
+                <p>[STATEMENT IN FRENCH]</p>
+            </div>
+
+            <div class="lang-section" data-lang="de">
+                <h3>Deutsch <span class="lang-badge">DE</span></h3>
+                <p>[STATEMENT IN GERMAN]</p>
+            </div>
+        </section>
+
+        <!-- Confirmations -->
+        <section class="references-section">
+            <h2>Confirmations</h2>
+            <p>Supporting evidence for this statement:</p>
+
+            <div class="reference-item" data-lang="en">
+                <h4>[REFERENCE TITLE] <span class="lang-badge">EN</span></h4>
+                <p>[REFERENCE DESCRIPTION]</p>
+                <p><a href="[URL]" class="reference-link" target="_blank">[URL]</a></p>
+            </div>
+
+            <!-- Add more references as needed -->
+        </section>
+
+        <!-- Refutations -->
+        <section class="references-section">
+            <h2>Refutations</h2>
+            <p>Contradicting claims:</p>
+
+            <div class="reference-item" data-lang="en">
+                <h4>[REFUTATION TITLE] <span class="lang-badge">EN</span></h4>
+                <p>[REFUTATION DESCRIPTION]</p>
+                <p><a href="[URL]" class="reference-link" target="_blank">[URL]</a></p>
+            </div>
+
+            <!-- Add more refutations as needed, or note if none exist -->
+        </section>
+
+        <!-- Public Domain Notice -->
+        <section>
+            <h2>License & Attribution</h2>
+            <p>This content is in the public domain. The facts and references are compiled from publicly available sources.</p>
+            <p><strong>Last Updated:</strong> [DATE]</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>All content is in the public domain.</p>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+</html>
