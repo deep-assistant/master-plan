@@ -12,6 +12,10 @@ Detailed architecture documentation for each project:
 - **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
 - **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
 - **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
+- **[android-app](ANDROID_ARCHITECTURE.md)** - Native Android application (Kotlin, Jetpack Compose) - [Planning Phase]
+  - [API Integration Guide](API_INTEGRATION.md)
+  - [Implementation Plan](IMPLEMENTATION_PLAN.md)
+  - [PR #33](https://github.com/deep-assistant/master-plan/pull/33)
 
 # End Goal / Mission
 
