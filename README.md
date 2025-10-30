@@ -9,7 +9,7 @@ The repository to host:
 Detailed architecture documentation for each project:
 
 - **[api-gateway](https://github.com/deep-assistant/api-gateway/blob/main/ARCHITECTURE.md)** - OpenAI-compatible API gateway with multi-provider failover
-- **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
+- **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Telegram bot powered by JavaScript/Bun (grammY framework) - **🚀 Now recommended over Python implementation**
 - **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
 - **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
 
