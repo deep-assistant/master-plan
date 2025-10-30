@@ -1,0 +1,24 @@
+diff --git a/js/src/i18n.js b/js/src/i18n.js
+index 62b0ee1..a808129 100644
+--- a/js/src/i18n.js
++++ b/js/src/i18n.js
+@@ -31,8 +31,8 @@ export function translate(locale, key, params = {}) {
+   const data = loadLocale(locale);
+   let val = getNested(data, key) ?? data[key];
+   if (!val) {
+-    if (locale !== 'ru') {
+-      const fallback = loadLocale('ru');
++    if (locale !== 'en') {
++      const fallback = loadLocale('en');
+       val = getNested(fallback, key) ?? fallback[key];
+     }
+     if (!val) return `{${key}}`;
+@@ -45,7 +45,7 @@ export function translate(locale, key, params = {}) {
+   return val;
+ }
+ 
+-export function createI18nMiddleware(defaultLocale = 'ru') {
++export function createI18nMiddleware(defaultLocale = 'en') {
+   return async (ctx, next) => {
+     const code = ctx.from?.language_code?.split('-')[0] || defaultLocale;
+     ctx.locale = code;
