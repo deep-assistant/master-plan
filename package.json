@@ -1,0 +1,143 @@
+{
+  "name": "deep-assistant",
+  "displayName": "Deep Assistant",
+  "description": "Personal AI assistant for VS Code with support for Visual Studio Code web (github.dev, vscode.dev)",
+  "version": "0.1.0",
+  "publisher": "deep-assistant",
+  "license": "Unlicense",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "AI",
+    "Chat",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "assistant",
+    "chat",
+    "gpt",
+    "openai",
+    "claude",
+    "deepseek"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "browser": "./dist/web/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "deepAssistant.chat",
+        "title": "Deep Assistant: Start Chat"
+      },
+      {
+        "command": "deepAssistant.clearChat",
+        "title": "Deep Assistant: Clear Chat History"
+      },
+      {
+        "command": "deepAssistant.selectModel",
+        "title": "Deep Assistant: Select Model"
+      },
+      {
+        "command": "deepAssistant.showSettings",
+        "title": "Deep Assistant: Settings"
+      }
+    ],
+    "configuration": {
+      "title": "Deep Assistant",
+      "properties": {
+        "deepAssistant.apiBaseUrl": {
+          "type": "string",
+          "default": "https://api.deep-assistant.com",
+          "description": "API Gateway base URL"
+        },
+        "deepAssistant.apiToken": {
+          "type": "string",
+          "default": "",
+          "description": "Your API token for authentication"
+        },
+        "deepAssistant.defaultModel": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "enum": [
+            "gpt-4o",
+            "gpt-4o-mini",
+            "claude-3-7-sonnet",
+            "claude-3-5-sonnet",
+            "claude-sonnet-4",
+            "deepseek-chat",
+            "deepseek-reasoner",
+            "o1-preview",
+            "o1-mini",
+            "o3-mini"
+          ],
+          "description": "Default AI model to use"
+        },
+        "deepAssistant.systemMessage": {
+          "type": "string",
+          "default": "You are a helpful AI assistant integrated into VS Code.",
+          "description": "System message for the AI assistant"
+        },
+        "deepAssistant.showTokenUsage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show token usage in chat responses"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "deep-assistant",
+          "title": "Deep Assistant",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "deep-assistant": [
+        {
+          "type": "webview",
+          "id": "deepAssistant.chatView",
+          "name": "Chat"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "compile-web": "webpack --config-name web",
+    "watch": "webpack --watch",
+    "watch-web": "webpack --watch --config-name web",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "package-web": "webpack --mode production --devtool hidden-source-map --config-name web",
+    "test": "node ./out/test/runTest.js",
+    "lint": "eslint src --ext ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-assistant/vscode-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deep-assistant/master-plan/issues"
+  },
+  "homepage": "https://github.com/deep-assistant/master-plan#readme"
+}
