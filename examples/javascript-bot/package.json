@@ -1,0 +1,30 @@
+{
+  "name": "vk-bot-example-javascript",
+  "version": "1.0.0",
+  "description": "Minimal VK Bot example using Node.js",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "keywords": [
+    "vk",
+    "bot",
+    "vkontakte",
+    "ai",
+    "chatbot"
+  ],
+  "author": "Deep Assistant Team",
+  "license": "Unlicense",
+  "dependencies": {
+    "node-vk-bot-api": "^4.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
