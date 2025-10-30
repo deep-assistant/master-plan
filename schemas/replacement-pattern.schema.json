@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/deep-assistant/master-plan/schemas/replacement-pattern.schema.json",
+  "title": "ReplacementPattern",
+  "description": "A template for converting meanings into phrases",
+  "type": "object",
+  "required": ["id", "name", "input_meanings", "output_template", "language_code"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the pattern"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the pattern"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what this pattern does"
+    },
+    "input_meanings": {
+      "type": "array",
+      "description": "Slots for input meanings",
+      "items": {
+        "$ref": "#/definitions/MeaningSlot"
+      }
+    },
+    "output_template": {
+      "$ref": "#/definitions/Template"
+    },
+    "language_code": {
+      "type": "string",
+      "pattern": "^[a-z]{3}$",
+      "description": "ISO 639-3 language code"
+    },
+    "style": {
+      "$ref": "#/definitions/StyleDescriptor"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Constraint"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "description": "Example input meanings"
+          },
+          "output": {
+            "type": "string",
+            "description": "Expected output phrase"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MeaningSlot": {
+      "type": "object",
+      "required": ["position", "meaning_category", "role"],
+      "properties": {
+        "position": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Position index in the pattern"
+        },
+        "meaning_category": {
+          "type": "string",
+          "enum": ["EVENT", "STATE", "PLACE", "AMOUNT", "THING", "PROPERTY", "RELATION", "TIME"],
+          "description": "Required ontological category"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["AGENT", "PATIENT", "INSTRUMENT", "LOCATION", "TIME", "MANNER", "CAUSE", "GOAL", "SOURCE", "BENEFICIARY"],
+          "description": "Semantic role in the pattern"
+        },
+        "optional": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this slot is optional"
+        },
+        "constraints": {
+          "type": "object",
+          "description": "Additional constraints on acceptable meanings"
+        }
+      }
+    },
+    "Template": {
+      "type": "object",
+      "required": ["structure"],
+      "properties": {
+        "structure": {
+          "type": "string",
+          "description": "Template string with placeholders {0}, {1}, etc."
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Transformation"
+          }
+        }
+      }
+    },
+    "Transformation": {
+      "type": "object",
+      "required": ["type", "target_position"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["INFLECT", "CONJUGATE", "PLURALIZE", "CASE", "AGREEMENT", "CAPITALIZE", "ARTICLE"],
+          "description": "Type of morphological transformation"
+        },
+        "target_position": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Which placeholder to transform"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Parameters for the transformation",
+          "additionalProperties": true
+        }
+      }
+    },
+    "StyleDescriptor": {
+      "type": "object",
+      "properties": {
+        "register": {
+          "type": "string",
+          "enum": ["TECHNICAL", "LITERARY", "COLLOQUIAL", "SLANG", "FORMAL", "INFORMAL"]
+        },
+        "formality": {
+          "type": "string",
+          "enum": ["VERY_FORMAL", "FORMAL", "NEUTRAL", "INFORMAL", "VERY_INFORMAL"]
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["SIMPLE", "INTERMEDIATE", "ADVANCED"],
+          "description": "Linguistic complexity level"
+        },
+        "verbosity": {
+          "type": "string",
+          "enum": ["CONCISE", "MODERATE", "ELABORATE"],
+          "description": "How wordy the output should be"
+        },
+        "audience": {
+          "type": "string",
+          "enum": ["CHILD", "GENERAL", "EXPERT"],
+          "description": "Target audience"
+        }
+      }
+    },
+    "Constraint": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["MEANING_REQUIRED", "MEANING_FORBIDDEN", "RELATIONSHIP_REQUIRED", "CONTEXT_REQUIRED"],
+          "description": "Type of constraint"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Parameters for the constraint",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

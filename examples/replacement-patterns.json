@@ -1,0 +1,433 @@
+{
+  "patterns": [
+    {
+      "id": "pattern-001",
+      "name": "simple-action",
+      "description": "Pattern for simple action sentences: [THING] [ACTION]",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        }
+      ],
+      "output_template": {
+        "structure": "{0} {1}",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "person": "third",
+              "number": "singular"
+            }
+          }
+        ]
+      },
+      "language_code": "eng",
+      "style": {
+        "register": "COLLOQUIAL",
+        "formality": "NEUTRAL",
+        "complexity": "SIMPLE",
+        "verbosity": "CONCISE",
+        "audience": "GENERAL"
+      },
+      "constraints": [],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run"
+          },
+          "output": "The cat runs"
+        }
+      ]
+    },
+    {
+      "id": "pattern-002",
+      "name": "action-with-manner",
+      "description": "Pattern for action with manner adverb: [THING] [ACTION] [MANNER]",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        },
+        {
+          "position": 2,
+          "meaning_category": "PROPERTY",
+          "role": "MANNER",
+          "optional": false
+        }
+      ],
+      "output_template": {
+        "structure": "{0} {1} {2}",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "person": "third",
+              "number": "singular"
+            }
+          },
+          {
+            "type": "INFLECT",
+            "target_position": 2,
+            "parameters": {
+              "form": "adverb"
+            }
+          }
+        ]
+      },
+      "language_code": "eng",
+      "style": {
+        "register": "COLLOQUIAL",
+        "formality": "NEUTRAL",
+        "complexity": "SIMPLE",
+        "verbosity": "MODERATE",
+        "audience": "GENERAL"
+      },
+      "constraints": [],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run",
+            "2": "meaning:quick"
+          },
+          "output": "The cat runs quickly"
+        }
+      ]
+    },
+    {
+      "id": "pattern-003",
+      "name": "formal-action-with-manner",
+      "description": "Formal pattern for action with manner",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        },
+        {
+          "position": 2,
+          "meaning_category": "PROPERTY",
+          "role": "MANNER",
+          "optional": false
+        }
+      ],
+      "output_template": {
+        "structure": "{0} exhibits {1} in a {2} manner",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "form": "noun"
+            }
+          },
+          {
+            "type": "INFLECT",
+            "target_position": 2,
+            "parameters": {
+              "form": "adjective"
+            }
+          }
+        ]
+      },
+      "language_code": "eng",
+      "style": {
+        "register": "TECHNICAL",
+        "formality": "VERY_FORMAL",
+        "complexity": "ADVANCED",
+        "verbosity": "ELABORATE",
+        "audience": "EXPERT"
+      },
+      "constraints": [],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run",
+            "2": "meaning:quick"
+          },
+          "output": "The feline exhibits locomotion in a rapid manner"
+        }
+      ]
+    },
+    {
+      "id": "pattern-004",
+      "name": "child-simple-action",
+      "description": "Very simple pattern for children",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        },
+        {
+          "position": 2,
+          "meaning_category": "PROPERTY",
+          "role": "MANNER",
+          "optional": true
+        }
+      ],
+      "output_template": {
+        "structure": "{0} goes {2}",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "person": "third",
+              "number": "singular",
+              "simplify": true
+            }
+          },
+          {
+            "type": "INFLECT",
+            "target_position": 2,
+            "parameters": {
+              "form": "adverb",
+              "simplify": true
+            }
+          }
+        ]
+      },
+      "language_code": "eng",
+      "style": {
+        "register": "COLLOQUIAL",
+        "formality": "INFORMAL",
+        "complexity": "SIMPLE",
+        "verbosity": "CONCISE",
+        "audience": "CHILD"
+      },
+      "constraints": [
+        {
+          "type": "MEANING_REQUIRED",
+          "parameters": {
+            "complexity_max": 3
+          }
+        }
+      ],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run",
+            "2": "meaning:quick"
+          },
+          "output": "The cat goes fast"
+        }
+      ]
+    },
+    {
+      "id": "pattern-005",
+      "name": "literary-action",
+      "description": "Literary/poetic pattern",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        },
+        {
+          "position": 2,
+          "meaning_category": "PROPERTY",
+          "role": "MANNER",
+          "optional": false
+        }
+      ],
+      "output_template": {
+        "structure": "{0} {1} {2}",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "person": "third",
+              "number": "singular",
+              "register": "literary"
+            }
+          },
+          {
+            "type": "INFLECT",
+            "target_position": 2,
+            "parameters": {
+              "form": "adverb",
+              "register": "literary"
+            }
+          }
+        ]
+      },
+      "language_code": "eng",
+      "style": {
+        "register": "LITERARY",
+        "formality": "FORMAL",
+        "complexity": "ADVANCED",
+        "verbosity": "MODERATE",
+        "audience": "GENERAL"
+      },
+      "constraints": [],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run",
+            "2": "meaning:quick"
+          },
+          "output": "The nimble feline darts swiftly"
+        }
+      ]
+    },
+    {
+      "id": "pattern-006",
+      "name": "spanish-action-manner",
+      "description": "Spanish pattern for action with manner",
+      "input_meanings": [
+        {
+          "position": 0,
+          "meaning_category": "THING",
+          "role": "AGENT",
+          "optional": false
+        },
+        {
+          "position": 1,
+          "meaning_category": "EVENT",
+          "role": "PATIENT",
+          "optional": false
+        },
+        {
+          "position": 2,
+          "meaning_category": "PROPERTY",
+          "role": "MANNER",
+          "optional": false
+        }
+      ],
+      "output_template": {
+        "structure": "{0} {1} {2}",
+        "transformations": [
+          {
+            "type": "ARTICLE",
+            "target_position": 0,
+            "parameters": {
+              "article_type": "definite",
+              "gender": "agree"
+            }
+          },
+          {
+            "type": "CONJUGATE",
+            "target_position": 1,
+            "parameters": {
+              "tense": "present",
+              "person": "third",
+              "number": "singular"
+            }
+          },
+          {
+            "type": "INFLECT",
+            "target_position": 2,
+            "parameters": {
+              "form": "adverb"
+            }
+          }
+        ]
+      },
+      "language_code": "spa",
+      "style": {
+        "register": "COLLOQUIAL",
+        "formality": "NEUTRAL",
+        "complexity": "SIMPLE",
+        "verbosity": "MODERATE",
+        "audience": "GENERAL"
+      },
+      "constraints": [],
+      "examples": [
+        {
+          "input": {
+            "0": "meaning:cat",
+            "1": "meaning:run",
+            "2": "meaning:quick"
+          },
+          "output": "El gato corre rápidamente"
+        }
+      ]
+    }
+  ]
+}

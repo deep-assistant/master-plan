@@ -1,0 +1,248 @@
+{
+  "meanings": [
+    {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "name": "move",
+      "type": "COMPOSITE",
+      "category": "EVENT",
+      "submeanings": [
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000010",
+          "relation_type": "PART_OF",
+          "weight": 1.0,
+          "description": "Movement requires change of position"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000011",
+          "relation_type": "REQUIRES",
+          "weight": 0.8,
+          "description": "Movement typically involves an entity"
+        }
+      ],
+      "metadata": {
+        "complexity": 3,
+        "frequency": 9.5,
+        "domain": ["everyday", "physics"]
+      },
+      "description": "Change location or position",
+      "examples": ["The ball moves", "She moved to a new city"]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "run",
+      "type": "COMPOSITE",
+      "category": "EVENT",
+      "submeanings": [
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000001",
+          "relation_type": "IS_A",
+          "weight": 1.0,
+          "description": "Running is a type of movement"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000020",
+          "relation_type": "HAS_PROPERTY",
+          "weight": 0.9,
+          "description": "Running has the property of being fast"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000021",
+          "relation_type": "REQUIRES",
+          "weight": 1.0,
+          "description": "Running requires legs"
+        }
+      ],
+      "metadata": {
+        "complexity": 4,
+        "frequency": 8.7,
+        "domain": ["everyday", "sports"]
+      },
+      "description": "Move rapidly on foot",
+      "examples": ["The cat runs", "He runs every morning"]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "name": "cat",
+      "type": "COMPOSITE",
+      "category": "THING",
+      "submeanings": [
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000030",
+          "relation_type": "IS_A",
+          "weight": 1.0,
+          "description": "Cat is a type of animal"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000031",
+          "relation_type": "HAS_PROPERTY",
+          "weight": 0.8,
+          "description": "Cats are typically domestic"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000032",
+          "relation_type": "HAS_PROPERTY",
+          "weight": 0.7,
+          "description": "Cats are typically small"
+        }
+      ],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 8.0,
+        "domain": ["everyday", "biology"]
+      },
+      "description": "Small domesticated carnivorous mammal",
+      "examples": ["The cat sleeps", "I have a cat"]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000004",
+      "name": "quick",
+      "type": "COMPOSITE",
+      "category": "PROPERTY",
+      "submeanings": [
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000020",
+          "relation_type": "SIMILAR_TO",
+          "weight": 0.9,
+          "description": "Quick is similar to fast"
+        },
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000040",
+          "relation_type": "PART_OF",
+          "weight": 0.8,
+          "description": "Quickness relates to speed"
+        }
+      ],
+      "metadata": {
+        "complexity": 3,
+        "frequency": 7.5,
+        "domain": ["everyday"]
+      },
+      "description": "Happening in a short time or at high speed",
+      "examples": ["A quick response", "She is quick"]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000010",
+      "name": "change-position",
+      "type": "PRIMITIVE",
+      "category": "EVENT",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 5.0,
+        "domain": ["physics", "everyday"]
+      },
+      "description": "Alteration in spatial location"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000011",
+      "name": "entity",
+      "type": "PRIMITIVE",
+      "category": "THING",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 1,
+        "frequency": 6.0,
+        "domain": ["philosophy", "everyday"]
+      },
+      "description": "Something that exists"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000020",
+      "name": "fast",
+      "type": "PRIMITIVE",
+      "category": "PROPERTY",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 8.5,
+        "domain": ["everyday"]
+      },
+      "description": "High speed or velocity"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000021",
+      "name": "legs",
+      "type": "COMPOSITE",
+      "category": "THING",
+      "submeanings": [
+        {
+          "target_meaning_id": "00000000-0000-0000-0000-000000000050",
+          "relation_type": "IS_A",
+          "weight": 1.0,
+          "description": "Legs are body parts"
+        }
+      ],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 7.0,
+        "domain": ["biology", "everyday"]
+      },
+      "description": "Limbs used for locomotion"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000030",
+      "name": "animal",
+      "type": "PRIMITIVE",
+      "category": "THING",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 8.0,
+        "domain": ["biology", "everyday"]
+      },
+      "description": "Living organism that can move and respond to stimuli"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000031",
+      "name": "domestic",
+      "type": "PRIMITIVE",
+      "category": "PROPERTY",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 3,
+        "frequency": 5.0,
+        "domain": ["everyday"]
+      },
+      "description": "Tamed and kept by humans"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000032",
+      "name": "small",
+      "type": "PRIMITIVE",
+      "category": "PROPERTY",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 1,
+        "frequency": 9.0,
+        "domain": ["everyday"]
+      },
+      "description": "Of limited size"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000040",
+      "name": "speed",
+      "type": "PRIMITIVE",
+      "category": "PROPERTY",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 3,
+        "frequency": 7.0,
+        "domain": ["physics", "everyday"]
+      },
+      "description": "Rate of motion"
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000050",
+      "name": "body-part",
+      "type": "PRIMITIVE",
+      "category": "THING",
+      "submeanings": [],
+      "metadata": {
+        "complexity": 2,
+        "frequency": 6.0,
+        "domain": ["biology", "everyday"]
+      },
+      "description": "Component of a living organism's body"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/deep-assistant/master-plan/schemas/fact.schema.json",
+  "title": "Fact",
+  "description": "A language-independent representation of a factual statement",
+  "type": "object",
+  "required": ["id", "predicate_meaning_id", "arguments"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the fact"
+    },
+    "predicate_meaning_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The main predicate or relation of the fact"
+    },
+    "arguments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/FactArgument"
+      },
+      "description": "Arguments of the predicate"
+    },
+    "modifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/FactModifier"
+      },
+      "description": "Modifiers that affect the predicate"
+    },
+    "temporal": {
+      "$ref": "#/definitions/TemporalInfo",
+      "description": "Temporal information about when the fact holds"
+    },
+    "modal": {
+      "$ref": "#/definitions/ModalInfo",
+      "description": "Modal information (necessity, possibility, etc.)"
+    },
+    "truth_value": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 1.0,
+      "description": "Certainty of the fact (0.0 = false, 1.0 = certainly true)"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["DIRECT_OBSERVATION", "INFERENCE", "CITATION", "USER_INPUT"]
+        },
+        "reference": {
+          "type": "string",
+          "description": "Source reference if applicable"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "spatial": {
+          "type": "string",
+          "description": "Spatial context where fact holds"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain or field of knowledge"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "FactArgument": {
+      "type": "object",
+      "required": ["role"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["AGENT", "PATIENT", "INSTRUMENT", "LOCATION", "TIME", "MANNER", "CAUSE", "GOAL", "SOURCE", "BENEFICIARY"],
+          "description": "Semantic role of this argument"
+        },
+        "meaning_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "ID of the meaning for this argument (for type/concept references)"
+        },
+        "value": {
+          "description": "Concrete value for this argument (for specific instances)"
+        },
+        "determiner": {
+          "type": "string",
+          "enum": ["DEFINITE", "INDEFINITE", "DEMONSTRATIVE", "POSSESSIVE", "QUANTIFIER", "NONE"],
+          "description": "Determiner type (e.g., 'the', 'a', 'this', 'my')"
+        },
+        "quantifier": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["UNIVERSAL", "EXISTENTIAL", "NUMERIC", "PROPORTIONAL"]
+            },
+            "value": {
+              "description": "Quantifier value (e.g., number for NUMERIC)"
+            }
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "description": "Additional meaning IDs that modify this argument"
+        }
+      }
+    },
+    "FactModifier": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["NEGATION", "INTENSIFICATION", "DIMINUTION", "ASPECT", "MOOD", "VOICE"],
+          "description": "Type of modification"
+        },
+        "meaning_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Meaning ID if the modifier has semantic content"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Additional parameters for the modifier"
+        }
+      }
+    },
+    "TemporalInfo": {
+      "type": "object",
+      "properties": {
+        "tense": {
+          "type": "string",
+          "enum": ["PAST", "PRESENT", "FUTURE"]
+        },
+        "aspect": {
+          "type": "string",
+          "enum": ["SIMPLE", "PROGRESSIVE", "PERFECT", "PERFECT_PROGRESSIVE"]
+        },
+        "time_point": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Specific time point if known"
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "enum": ["SECOND", "MINUTE", "HOUR", "DAY", "WEEK", "MONTH", "YEAR"]
+            }
+          }
+        }
+      }
+    },
+    "ModalInfo": {
+      "type": "object",
+      "properties": {
+        "modality": {
+          "type": "string",
+          "enum": ["NECESSARY", "POSSIBLE", "PROBABLE", "CERTAIN", "OBLIGATORY", "PERMITTED"],
+          "description": "Type of modality"
+        },
+        "strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Strength of the modal claim"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "mappings": [
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000002",
+      "language_code": "eng",
+      "expressions": [
+        {
+          "text": "run",
+          "phonetic": "rʌn",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.5,
+          "part_of_speech": "VERB",
+          "inflections": {
+            "present_3sg": "runs",
+            "past": "ran",
+            "past_participle": "run",
+            "present_participle": "running"
+          }
+        },
+        {
+          "text": "jog",
+          "phonetic": "dʒɑɡ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 6.0,
+          "context_constraints": ["usually slower than running, for exercise"],
+          "part_of_speech": "VERB"
+        },
+        {
+          "text": "sprint",
+          "phonetic": "sprɪnt",
+          "formality": "NEUTRAL",
+          "register": ["TECHNICAL"],
+          "frequency": 5.0,
+          "context_constraints": ["very fast running, short distance"],
+          "part_of_speech": "VERB"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000002",
+      "language_code": "spa",
+      "expressions": [
+        {
+          "text": "correr",
+          "phonetic": "koˈreɾ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "VERB",
+          "inflections": {
+            "present_1sg": "corro",
+            "present_3sg": "corre",
+            "past_1sg": "corrí",
+            "past_3sg": "corrió"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000002",
+      "language_code": "fra",
+      "expressions": [
+        {
+          "text": "courir",
+          "phonetic": "ku.ʁiʁ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "VERB",
+          "inflections": {
+            "present_1sg": "cours",
+            "present_3sg": "court",
+            "past_1sg": "courus",
+            "past_3sg": "courut"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000002",
+      "language_code": "rus",
+      "expressions": [
+        {
+          "text": "бежать",
+          "phonetic": "bʲɪˈʐatʲ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "VERB",
+          "inflections": {
+            "present_1sg": "бегу",
+            "present_3sg": "бежит",
+            "past_masc": "бежал",
+            "past_fem": "бежала"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000002",
+      "language_code": "jpn",
+      "expressions": [
+        {
+          "text": "走る",
+          "phonetic": "haɕiɾɯ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "VERB",
+          "inflections": {
+            "present": "走る",
+            "past": "走った",
+            "negative": "走らない",
+            "polite_present": "走ります"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000003",
+      "language_code": "eng",
+      "expressions": [
+        {
+          "text": "cat",
+          "phonetic": "kæt",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "NOUN",
+          "inflections": {
+            "plural": "cats"
+          }
+        },
+        {
+          "text": "feline",
+          "phonetic": "ˈfilaɪn",
+          "formality": "FORMAL",
+          "register": ["TECHNICAL"],
+          "frequency": 4.0,
+          "part_of_speech": "NOUN"
+        },
+        {
+          "text": "kitty",
+          "phonetic": "ˈkɪti",
+          "formality": "INFORMAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 6.0,
+          "context_constraints": ["endearing, informal"],
+          "part_of_speech": "NOUN"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000003",
+      "language_code": "spa",
+      "expressions": [
+        {
+          "text": "gato",
+          "phonetic": "ˈɡato",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "NOUN",
+          "inflections": {
+            "plural": "gatos",
+            "feminine": "gata",
+            "feminine_plural": "gatas"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000003",
+      "language_code": "fra",
+      "expressions": [
+        {
+          "text": "chat",
+          "phonetic": "ʃa",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "NOUN",
+          "inflections": {
+            "plural": "chats",
+            "feminine": "chatte"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000003",
+      "language_code": "rus",
+      "expressions": [
+        {
+          "text": "кот",
+          "phonetic": "kot",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "NOUN",
+          "inflections": {
+            "nominative": "кот",
+            "genitive": "кота",
+            "feminine": "кошка"
+          }
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000003",
+      "language_code": "jpn",
+      "expressions": [
+        {
+          "text": "猫",
+          "phonetic": "neko",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "NOUN"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000004",
+      "language_code": "eng",
+      "expressions": [
+        {
+          "text": "quick",
+          "phonetic": "kwɪk",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 8.5,
+          "part_of_speech": "ADJECTIVE"
+        },
+        {
+          "text": "quickly",
+          "phonetic": "ˈkwɪkli",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 8.5,
+          "part_of_speech": "ADVERB"
+        },
+        {
+          "text": "fast",
+          "phonetic": "fæst",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "ADVERB"
+        },
+        {
+          "text": "rapidly",
+          "phonetic": "ˈɹæpɪdli",
+          "formality": "FORMAL",
+          "register": ["TECHNICAL"],
+          "frequency": 6.0,
+          "part_of_speech": "ADVERB"
+        },
+        {
+          "text": "swiftly",
+          "phonetic": "ˈswɪftli",
+          "formality": "FORMAL",
+          "register": ["LITERARY"],
+          "frequency": 5.0,
+          "part_of_speech": "ADVERB"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000004",
+      "language_code": "spa",
+      "expressions": [
+        {
+          "text": "rápidamente",
+          "phonetic": "ˈra.pi.ða.ˈmen.te",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 8.0,
+          "part_of_speech": "ADVERB"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000004",
+      "language_code": "fra",
+      "expressions": [
+        {
+          "text": "rapidement",
+          "phonetic": "ʁa.pid.mɑ̃",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 8.0,
+          "part_of_speech": "ADVERB"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000004",
+      "language_code": "rus",
+      "expressions": [
+        {
+          "text": "быстро",
+          "phonetic": "ˈbɨstrə",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 9.0,
+          "part_of_speech": "ADVERB"
+        }
+      ]
+    },
+    {
+      "meaning_id": "00000000-0000-0000-0000-000000000004",
+      "language_code": "jpn",
+      "expressions": [
+        {
+          "text": "速く",
+          "phonetic": "hajakɯ",
+          "formality": "NEUTRAL",
+          "register": ["COLLOQUIAL"],
+          "frequency": 8.0,
+          "part_of_speech": "ADVERB"
+        }
+      ]
+    }
+  ]
+}

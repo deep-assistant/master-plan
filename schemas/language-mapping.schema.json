@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/deep-assistant/master-plan/schemas/language-mapping.schema.json",
+  "title": "LanguageMapping",
+  "description": "Maps a meaning to expressions in a specific language",
+  "type": "object",
+  "required": ["meaning_id", "language_code", "expressions"],
+  "properties": {
+    "meaning_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the meaning being mapped"
+    },
+    "language_code": {
+      "type": "string",
+      "pattern": "^[a-z]{3}$",
+      "description": "ISO 639-3 language code (e.g., 'eng', 'spa', 'fra', 'rus', 'jpn')"
+    },
+    "expressions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/Expression"
+      }
+    }
+  },
+  "definitions": {
+    "Expression": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The expression text in the target language"
+        },
+        "phonetic": {
+          "type": "string",
+          "description": "International Phonetic Alphabet (IPA) representation"
+        },
+        "formality": {
+          "type": "string",
+          "enum": ["VERY_FORMAL", "FORMAL", "NEUTRAL", "INFORMAL", "VERY_INFORMAL"],
+          "description": "Formality level of the expression"
+        },
+        "register": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["TECHNICAL", "LITERARY", "COLLOQUIAL", "SLANG", "ARCHAIC", "DIALECTAL"]
+          },
+          "description": "Register or style tags"
+        },
+        "frequency": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Usage frequency (higher = more common)"
+        },
+        "context_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Contexts where this expression is appropriate"
+        },
+        "part_of_speech": {
+          "type": "string",
+          "enum": ["NOUN", "VERB", "ADJECTIVE", "ADVERB", "PREPOSITION", "CONJUNCTION", "INTERJECTION", "PRONOUN", "DETERMINER"],
+          "description": "Part of speech for this expression"
+        },
+        "inflections": {
+          "type": "object",
+          "description": "Morphological variations (e.g., plural, tense, case)",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

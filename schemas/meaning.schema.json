@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/deep-assistant/master-plan/schemas/meaning.schema.json",
+  "title": "Meaning",
+  "description": "A semantic meaning unit in the Dictionary of Meanings system",
+  "type": "object",
+  "required": ["id", "name", "type", "category"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the meaning"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the meaning"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["PRIMITIVE", "COMPOSITE"],
+      "description": "Whether this is an atomic meaning or composed of submeanings"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["EVENT", "STATE", "PLACE", "AMOUNT", "THING", "PROPERTY", "RELATION", "TIME"],
+      "description": "Ontological category of the meaning"
+    },
+    "submeanings": {
+      "type": "array",
+      "description": "Decomposition of this meaning into submeanings",
+      "items": {
+        "$ref": "#/definitions/MeaningRelation"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "complexity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Complexity score (0=simple, 10=complex)"
+        },
+        "frequency": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Usage frequency score (higher = more common)"
+        },
+        "domain": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Domain or field where this meaning is used (e.g., 'medical', 'technical', 'everyday')"
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional detailed description of the meaning"
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Example usage of this meaning"
+    }
+  },
+  "definitions": {
+    "MeaningRelation": {
+      "type": "object",
+      "required": ["target_meaning_id", "relation_type"],
+      "properties": {
+        "target_meaning_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "ID of the related meaning"
+        },
+        "relation_type": {
+          "type": "string",
+          "enum": ["IS_A", "PART_OF", "HAS_PROPERTY", "CAUSES", "REQUIRES", "OPPOSITE_OF", "SIMILAR_TO"],
+          "description": "Type of relationship to the target meaning"
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Strength of the relationship (0.0 = weak, 1.0 = strong)"
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the relationship"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "facts": [
+    {
+      "id": "fact-001",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000002",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "DEFINITE"
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "ASPECT",
+          "parameters": {
+            "aspect": "PROGRESSIVE"
+          }
+        }
+      ],
+      "temporal": {
+        "tense": "PRESENT",
+        "aspect": "SIMPLE"
+      },
+      "modal": null,
+      "truth_value": 1.0,
+      "source": {
+        "type": "DIRECT_OBSERVATION",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "fact-002",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000002",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "DEFINITE"
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "INTENSIFICATION",
+          "meaning_id": "00000000-0000-0000-0000-000000000004"
+        }
+      ],
+      "temporal": {
+        "tense": "PRESENT",
+        "aspect": "SIMPLE"
+      },
+      "modal": null,
+      "truth_value": 1.0,
+      "source": {
+        "type": "DIRECT_OBSERVATION",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "fact-003",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000001",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "DEFINITE",
+          "attributes": [
+            "00000000-0000-0000-0000-000000000032"
+          ]
+        },
+        {
+          "role": "LOCATION",
+          "value": "new city"
+        }
+      ],
+      "modifiers": [],
+      "temporal": {
+        "tense": "PAST",
+        "aspect": "SIMPLE"
+      },
+      "modal": null,
+      "truth_value": 1.0,
+      "source": {
+        "type": "INFERENCE",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "fact-004",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000002",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "INDEFINITE",
+          "quantifier": {
+            "type": "NUMERIC",
+            "value": 3
+          }
+        }
+      ],
+      "modifiers": [],
+      "temporal": {
+        "tense": "PRESENT",
+        "aspect": "PROGRESSIVE"
+      },
+      "modal": null,
+      "truth_value": 1.0,
+      "source": {
+        "type": "DIRECT_OBSERVATION",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "fact-005",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000002",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "DEFINITE"
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "NEGATION"
+        }
+      ],
+      "temporal": {
+        "tense": "PRESENT",
+        "aspect": "SIMPLE"
+      },
+      "modal": null,
+      "truth_value": 1.0,
+      "source": {
+        "type": "DIRECT_OBSERVATION",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "fact-006",
+      "predicate_meaning_id": "00000000-0000-0000-0000-000000000002",
+      "arguments": [
+        {
+          "role": "AGENT",
+          "meaning_id": "00000000-0000-0000-0000-000000000003",
+          "determiner": "DEFINITE"
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "INTENSIFICATION",
+          "meaning_id": "00000000-0000-0000-0000-000000000004"
+        }
+      ],
+      "temporal": {
+        "tense": "FUTURE",
+        "aspect": "SIMPLE"
+      },
+      "modal": {
+        "modality": "PROBABLE",
+        "strength": 0.8
+      },
+      "truth_value": 0.8,
+      "source": {
+        "type": "INFERENCE",
+        "confidence": 0.8
+      }
+    }
+  ],
+  "translations": {
+    "fact-001": {
+      "eng": {
+        "simple": "The cat runs",
+        "formal": "The feline exhibits locomotion",
+        "child": "The cat goes",
+        "literary": "The nimble feline darts"
+      },
+      "spa": {
+        "simple": "El gato corre"
+      },
+      "fra": {
+        "simple": "Le chat court"
+      },
+      "rus": {
+        "simple": "Кот бежит"
+      },
+      "jpn": {
+        "simple": "猫が走る"
+      },
+      "ipa": {
+        "simple": "ðə kæt rʌnz"
+      }
+    },
+    "fact-002": {
+      "eng": {
+        "simple": "The cat runs quickly",
+        "formal": "The feline exhibits rapid locomotion",
+        "child": "The cat goes fast",
+        "literary": "The nimble feline darts swiftly",
+        "concise": "Cat runs fast"
+      },
+      "spa": {
+        "simple": "El gato corre rápidamente"
+      },
+      "fra": {
+        "simple": "Le chat court rapidement"
+      },
+      "rus": {
+        "simple": "Кот быстро бежит"
+      },
+      "jpn": {
+        "simple": "猫が速く走る"
+      },
+      "ipa": {
+        "simple": "ðə kæt rʌnz ˈkwɪkli"
+      }
+    },
+    "fact-003": {
+      "eng": {
+        "simple": "The small cat moved to a new city",
+        "formal": "The diminutive feline relocated to a different municipality",
+        "child": "The little cat went to a new place"
+      }
+    },
+    "fact-004": {
+      "eng": {
+        "simple": "Three cats are running",
+        "formal": "Three felines are exhibiting locomotion",
+        "child": "Three cats go"
+      }
+    },
+    "fact-005": {
+      "eng": {
+        "simple": "The cat does not run",
+        "formal": "The feline does not exhibit locomotion",
+        "child": "The cat doesn't go"
+      }
+    },
+    "fact-006": {
+      "eng": {
+        "simple": "The cat will probably run quickly",
+        "formal": "The feline will likely exhibit rapid locomotion",
+        "child": "The cat might go fast soon"
+      }
+    }
+  },
+  "personalized_examples": {
+    "description": "Examples of personalizing facts to user's known vocabulary",
+    "user_profile": {
+      "name": "Child learner",
+      "known_meanings": [
+        "00000000-0000-0000-0000-000000000003",
+        "00000000-0000-0000-0000-000000000001",
+        "00000000-0000-0000-0000-000000000020",
+        "00000000-0000-0000-0000-000000000032"
+      ],
+      "preferred_complexity": "SIMPLE",
+      "preferred_formality": "INFORMAL"
+    },
+    "fact_002_personalized": {
+      "original": "The cat runs quickly",
+      "adapted": "The cat goes fast",
+      "explanation": "User doesn't know 'run' so we use 'go' (known movement verb). User doesn't know 'quickly' so we use 'fast' (known speed property)."
+    },
+    "fact_002_with_explanation": {
+      "text": "The cat goes fast",
+      "inline_help": "The cat <runs (goes very fast using legs)> <quickly (in a fast way)>",
+      "explanation": "Unknown words are replaced with definitions using only known vocabulary"
+    }
+  }
+}
