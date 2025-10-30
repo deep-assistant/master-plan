@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Facts Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Public Facts Database</h1>
+        <p class="subtitle">A collection of verified statements, facts, and hypotheses with supporting evidence</p>
+        <div class="language-selector">
+            <label for="language-filter">Select Languages:</label>
+            <div class="language-checkboxes">
+                <label><input type="checkbox" class="lang-checkbox" value="en" checked> English</label>
+                <label><input type="checkbox" class="lang-checkbox" value="ru" checked> Русский</label>
+                <label><input type="checkbox" class="lang-checkbox" value="es" checked> Español</label>
+                <label><input type="checkbox" class="lang-checkbox" value="fr" checked> Français</label>
+                <label><input type="checkbox" class="lang-checkbox" value="de" checked> Deutsch</label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="facts-list">
+            <h2>Facts & Statements</h2>
+            <div class="fact-card">
+                <h3>Sample Fact: Earth is Round</h3>
+                <p class="fact-id">ID: fact-001</p>
+                <p class="fact-status status-likely-true">Status: Likely True</p>
+                <p class="fact-description">The Earth is approximately spherical in shape, slightly oblate due to its rotation.</p>
+                <div class="fact-actions">
+                    <a href="facts/fact-001.html" class="button">View Details</a>
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <h3>Sample Fact: Water Boils at 100°C</h3>
+                <p class="fact-id">ID: fact-002</p>
+                <p class="fact-status status-likely-true">Status: Likely True (at standard pressure)</p>
+                <p class="fact-description">Water boils at 100 degrees Celsius (212 degrees Fahrenheit) at sea level atmospheric pressure.</p>
+                <div class="fact-actions">
+                    <a href="facts/fact-002.html" class="button">View Details</a>
+                </div>
+            </div>
+
+            <div class="fact-card">
+                <h3>Sample Hypothesis: AI Will Replace All Jobs</h3>
+                <p class="fact-id">ID: hypothesis-001</p>
+                <p class="fact-status status-unclear">Status: Unclear (Hypothesis)</p>
+                <p class="fact-description">Artificial Intelligence will eventually replace all human jobs.</p>
+                <div class="fact-actions">
+                    <a href="facts/hypothesis-001.html" class="button">View Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>About This Database</h2>
+            <p>This is a public domain database of facts, statements, and hypotheses. Each entry includes:</p>
+            <ul>
+                <li>The statement in multiple languages</li>
+                <li>Confirmations with supporting evidence</li>
+                <li>Refutations with contradicting evidence</li>
+                <li>Status: Likely True, Likely False, or Unclear</li>
+            </ul>
+            <p>All data is in the public domain and sourced from reliable references.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>All content is in the public domain. Last updated: 2025-10-30</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
