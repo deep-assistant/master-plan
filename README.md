@@ -12,6 +12,7 @@ Detailed architecture documentation for each project:
 - **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
 - **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
 - **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
+- **[Developer Mode](./DEVELOPER_MODE_ARCHITECTURE.md)** - Browser-based VS Code with AI coding assistant (OpenVSCode Server + Tabby)
 
 # End Goal / Mission
 
