@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "title": "Deep Assistant Public Q&A Database",
+    "description": "A public domain question and answer database for training AI models and providing educational resources. This database can be filled using automation or with teacher verification.",
+    "license": "CC0-1.0",
+    "created": "2025-10-30T00:00:00Z",
+    "updated": "2025-10-30T00:00:00Z",
+    "contributors": [
+      "Deep Assistant Team"
+    ]
+  },
+  "categories": [
+    {
+      "id": "general",
+      "name": "General Knowledge",
+      "description": "General knowledge questions and answers"
+    },
+    {
+      "id": "ai-ml",
+      "name": "Artificial Intelligence & Machine Learning",
+      "description": "Questions about AI, machine learning, and related topics"
+    },
+    {
+      "id": "programming",
+      "name": "Programming",
+      "description": "Programming languages, algorithms, and software development"
+    },
+    {
+      "id": "deep-assistant",
+      "name": "Deep Assistant",
+      "description": "Questions about the Deep Assistant project and ecosystem"
+    }
+  ],
+  "entries": [
+    {
+      "id": "qa-001",
+      "question": "What is Deep Assistant?",
+      "answer": "Deep Assistant is a personal AI assistant system designed to be available on any device and can be hosted on your hardware or in the cloud with easy migrations and synchronization between them. It's an ecosystem of services including API gateways, Telegram bots, VK mini apps, and web capture microservices.",
+      "category": "deep-assistant",
+      "tags": ["deep-assistant", "overview", "ecosystem"],
+      "source": "teacher-reviewed",
+      "verified": true,
+      "created": "2025-10-30T00:00:00Z",
+      "updated": "2025-10-30T00:00:00Z",
+      "metadata": {
+        "difficulty": "beginner",
+        "language": "en",
+        "references": [
+          "https://github.com/deep-assistant/master-plan"
+        ]
+      }
+    },
+    {
+      "id": "qa-002",
+      "question": "What is the mission of Deep Assistant?",
+      "answer": "The mission of Deep Assistant is to provide a personal AI assistant that is available on any device and can be hosted on your hardware or in the cloud with easy migrations and synchronization between them.",
+      "category": "deep-assistant",
+      "tags": ["deep-assistant", "mission", "vision"],
+      "source": "teacher-reviewed",
+      "verified": true,
+      "created": "2025-10-30T00:00:00Z",
+      "updated": "2025-10-30T00:00:00Z",
+      "metadata": {
+        "difficulty": "beginner",
+        "language": "en",
+        "references": [
+          "https://github.com/deep-assistant/master-plan/blob/main/README.md"
+        ]
+      }
+    },
+    {
+      "id": "qa-003",
+      "question": "What is machine learning?",
+      "answer": "Machine learning is a subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed. It focuses on developing computer programs that can access data and use it to learn for themselves through pattern recognition and statistical analysis.",
+      "category": "ai-ml",
+      "tags": ["machine-learning", "ai", "fundamentals"],
+      "source": "automated",
+      "verified": true,
+      "created": "2025-10-30T00:00:00Z",
+      "updated": "2025-10-30T00:00:00Z",
+      "metadata": {
+        "difficulty": "beginner",
+        "language": "en",
+        "references": []
+      }
+    },
+    {
+      "id": "qa-004",
+      "question": "What is the difference between supervised and unsupervised learning?",
+      "answer": "Supervised learning uses labeled training data where the correct output is known, allowing the model to learn the mapping between inputs and outputs. Examples include classification and regression. Unsupervised learning works with unlabeled data to discover hidden patterns or structures, such as clustering and dimensionality reduction.",
+      "category": "ai-ml",
+      "tags": ["machine-learning", "supervised-learning", "unsupervised-learning"],
+      "source": "automated",
+      "verified": true,
+      "created": "2025-10-30T00:00:00Z",
+      "updated": "2025-10-30T00:00:00Z",
+      "metadata": {
+        "difficulty": "intermediate",
+        "language": "en",
+        "references": []
+      }
+    },
+    {
+      "id": "qa-005",
+      "question": "What programming languages does Deep Assistant support?",
+      "answer": "Deep Assistant supports multiple programming languages across its ecosystem. The telegram-bot has both Python and JavaScript implementations, and the project uses various modern web technologies. The architecture is designed to be language-agnostic where possible.",
+      "category": "deep-assistant",
+      "tags": ["deep-assistant", "programming", "languages"],
+      "source": "teacher-reviewed",
+      "verified": true,
+      "created": "2025-10-30T00:00:00Z",
+      "updated": "2025-10-30T00:00:00Z",
+      "metadata": {
+        "difficulty": "beginner",
+        "language": "en",
+        "references": [
+          "https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md"
+        ]
+      }
+    }
+  ]
+}
