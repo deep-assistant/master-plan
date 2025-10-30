@@ -1,0 +1,39 @@
+name: Public Monitoring
+
+on:
+  schedule:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    # Allow manual triggers
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run monitoring check
+        run: node monitoring.mjs --once
+
+      - name: Commit and push monitoring data
+        run: |
+          git config user.name "Monitoring Bot"
+          git config user.email "bot@deep-assistant.com"
+          git add monitoring-data/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update monitoring data [skip ci]"
+            git push
+          fi

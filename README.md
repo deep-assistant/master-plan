@@ -2,7 +2,8 @@
 
 The repository to host:
 * [issues](https://github.com/deep-assistant/master-plan/issues) that related to entire organization;
-* [community discussions](https://github.com/deep-assistant/master-plan/discussions).
+* [community discussions](https://github.com/deep-assistant/master-plan/discussions);
+* [public monitoring](status.html) of Deep Assistant services.
 
 ## Architecture Documentation
 
@@ -12,6 +13,17 @@ Detailed architecture documentation for each project:
 - **[telegram-bot](https://github.com/deep-assistant/telegram-bot/blob/main/ARCHITECTURE.md)** - Dual-language Telegram bot (Python/JavaScript)
 - **[GPTutor](https://github.com/deep-assistant/GPTutor/blob/main/ARCHITECTURE.md)** - Multi-platform educational AI (VK/Telegram mini apps)
 - **[web-capture](https://github.com/deep-assistant/web-capture/blob/main/ARCHITECTURE.md)** - Web page capture microservice (HTML/Markdown/PNG)
+
+## Public Monitoring
+
+Real-time monitoring of Deep Assistant services is available at [status.html](status.html).
+
+The monitoring system tracks:
+- **API Latency**: Minimum response times for minimal requests
+- **Service Availability**: Uptime percentage and operational status
+- **Historical Data**: Performance trends over time
+
+For more information, see [MONITORING.md](MONITORING.md).
 
 # End Goal / Mission
 
