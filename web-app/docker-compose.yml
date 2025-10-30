@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deep-assistant-web-app
+    ports:
+      - "8080:80"
+    environment:
+      # These are build-time variables, but we can document them here
+      - VITE_API_GATEWAY_URL=${API_GATEWAY_URL:-http://localhost:3000}
+      - VITE_APP_TITLE=${APP_TITLE:-Deep Assistant}
+      - VITE_DEFAULT_MODEL=${DEFAULT_MODEL:-gpt-4o-mini}
+    restart: unless-stopped
+    networks:
+      - deep-assistant
+
+networks:
+  deep-assistant:
+    driver: bridge
