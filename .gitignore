@@ -134,3 +134,14 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# GitHub App private keys
+*.pem
+
+# Database files
+data/*.json
+!data/.gitkeep
+
+# Temporary files
+tmp/
+temp/

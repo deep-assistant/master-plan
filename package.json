@@ -1,0 +1,101 @@
+{
+  "name": "@deep-assistant/github-bot",
+  "version": "0.1.0",
+  "description": "GitHub integration bot for Deep Assistant - enables issue creation and PR generation via Telegram",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "NODE_ENV=test jest",
+    "test:unit": "NODE_ENV=test jest --testPathPattern=tests/unit",
+    "test:integration": "NODE_ENV=test jest --testPathPattern=tests/integration",
+    "test:e2e": "NODE_ENV=test jest --testPathPattern=tests/e2e",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "test:watch": "NODE_ENV=test jest --watch",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write \"src/**/*.js\"",
+    "validate:config": "node scripts/validate-config.js",
+    "db:init": "node scripts/init-db.js",
+    "db:reset": "node scripts/reset-db.js",
+    "debug:auth": "node scripts/debug-auth.js"
+  },
+  "keywords": [
+    "github",
+    "bot",
+    "telegram",
+    "ai",
+    "assistant",
+    "automation",
+    "pull-request",
+    "issue"
+  ],
+  "author": "Deep Assistant Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-assistant/github-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deep-assistant/github-bot/issues"
+  },
+  "homepage": "https://github.com/deep-assistant/github-bot#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@octokit/app": "^14.0.0",
+    "@octokit/rest": "^20.0.0",
+    "@octokit/webhooks": "^12.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "lowdb": "^7.0.0",
+    "pino": "^8.16.0",
+    "pino-pretty": "^10.2.0",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.1.0",
+    "joi": "^17.11.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.1.0",
+    "supertest": "^6.3.3",
+    "nock": "^13.3.8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/app.js"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "js,json",
+    "ignore": [
+      "data/*",
+      "tests/*"
+    ],
+    "exec": "node src/app.js"
+  }
+}

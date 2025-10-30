@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  github-bot:
+    build: .
+    container_name: deep-assistant-github-bot
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - GITHUB_APP_ID=${GITHUB_APP_ID}
+      - GITHUB_APP_PRIVATE_KEY=${GITHUB_APP_PRIVATE_KEY}
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - GITHUB_INSTALLATION_ID=${GITHUB_INSTALLATION_ID}
+      - PORT=3000
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - DATABASE_PATH=/app/data/db.json
+      - API_GATEWAY_URL=${API_GATEWAY_URL}
+      - TELEGRAM_BOT_WEBHOOK_URL=${TELEGRAM_BOT_WEBHOOK_URL}
+      - AI_MODEL_DEFAULT=${AI_MODEL_DEFAULT:-claude-3-5-sonnet-20241022}
+      - AI_MAX_TOKENS=${AI_MAX_TOKENS:-4096}
+      - JWT_SECRET=${JWT_SECRET}
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - deep-assistant-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: deep-assistant-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    networks:
+      - deep-assistant-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  redis-data:
+
+networks:
+  deep-assistant-network:
+    driver: bridge
