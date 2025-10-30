@@ -134,3 +134,23 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Electron-specific
+dist/
+*.dmg
+*.app
+*.exe
+*.deb
+*.rpm
+*.AppImage
+*.snap
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
