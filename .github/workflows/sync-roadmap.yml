@@ -1,0 +1,52 @@
+name: Sync Master Plan Roadmap
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+  issues:
+    types: [opened, closed, reopened, edited, deleted]
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  sync-roadmap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync roadmap with issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node .github/workflows/sync-roadmap.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code README.md || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: sync roadmap with GitHub issues
+
+          🤖 Automatically synchronized the roadmap section in README.md with the current state of GitHub issues across the organization.
+
+          🤖 Generated with GitHub Actions"
+          git push
