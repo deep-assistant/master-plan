@@ -89,7 +89,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist - commented out for VS Code extension, we need dist/ for the bundled extension
+# dist
 
 # Gatsby files
 .cache/

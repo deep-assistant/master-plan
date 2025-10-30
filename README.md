@@ -2,7 +2,30 @@
 
 The repository to host:
 * [issues](https://github.com/deep-assistant/master-plan/issues) that related to entire organization;
-* [community discussions](https://github.com/deep-assistant/master-plan/discussions).
+* [community discussions](https://github.com/deep-assistant/master-plan/discussions);
+* **VS Code Extension** - Deep Assistant extension with full support for Visual Studio Code web (github.dev, vscode.dev).
+
+## VS Code Extension
+
+**Deep Assistant** is now available as a VS Code extension with full support for web-based editors!
+
+### Features
+
+- Works on **github.dev** and **vscode.dev** in your browser
+- Integrated chat interface in VS Code sidebar
+- Support for multiple AI models (GPT-4o, Claude, DeepSeek, etc.)
+- Token-based billing with energy tracking
+- Real-time conversation with AI assistance
+
+### Quick Start
+
+1. Navigate to any GitHub repository
+2. Press `.` to open github.dev
+3. Install the Deep Assistant extension
+4. Configure your API token in settings
+5. Start chatting with AI!
+
+See [EXTENSION_README.md](./EXTENSION_README.md) for detailed documentation.
 
 ## Architecture Documentation
 
