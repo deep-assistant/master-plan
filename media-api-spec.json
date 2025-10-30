@@ -1,0 +1,1680 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Media Generation API",
+    "description": "OpenAI-compatible API specification for media generation including images, music, video and more.\n\nThis specification provides a standardized interface for various media generation providers,\nallowing seamless integration with different AI models for creating images, audio, and video content.\n\n## Features\n- Image generation, editing, and variations\n- Text-to-speech audio generation\n- Speech-to-text transcription\n- Audio translation\n- Video generation (future support)\n- Music generation (future support)\n\n## Provider Support\nThis API specification is designed to work with multiple providers:\n- **Images**: DALL-E 2, DALL-E 3, GPT-Image-1, Midjourney, Flux, Stable Diffusion\n- **Audio (Speech)**: GPT-4o-mini-TTS, TTS-1, TTS-1-HD\n- **Audio (Transcription)**: GPT-4o-transcribe, Whisper\n- **Music**: Suno AI\n- **Video**: RunwayML, Stability AI Video (planned)\n",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Deep Assistant",
+      "url": "https://github.com/deep-assistant/master-plan"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/deep-assistant/master-plan/blob/main/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:3000/v1",
+      "description": "Development server"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Images",
+      "description": "Generate, edit, and create variations of images"
+    },
+    {
+      "name": "Audio",
+      "description": "Text-to-speech, speech-to-text, and audio translation"
+    },
+    {
+      "name": "Music",
+      "description": "Music generation from text prompts"
+    },
+    {
+      "name": "Video",
+      "description": "Video generation and editing"
+    }
+  ],
+  "paths": {
+    "/images/generations": {
+      "post": {
+        "operationId": "createImage",
+        "tags": [
+          "Images"
+        ],
+        "summary": "Create image",
+        "description": "Creates an image given a text prompt. Supports multiple AI models including DALL-E, GPT-Image-1,\nMidjourney, Flux, and Stable Diffusion.\n\nLearn more at the [OpenAI image generation guide](https://platform.openai.com/docs/guides/images).\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateImageRequest"
+              },
+              "examples": {
+                "basic": {
+                  "summary": "Basic image generation",
+                  "value": {
+                    "prompt": "A cute baby sea otter",
+                    "model": "gpt-image-1",
+                    "n": 1,
+                    "size": "1024x1024"
+                  }
+                },
+                "streaming": {
+                  "summary": "Streaming image generation",
+                  "value": {
+                    "prompt": "A futuristic cityscape at sunset",
+                    "model": "gpt-image-1",
+                    "stream": true,
+                    "size": "1536x1024",
+                    "quality": "high"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully generated image(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImagesResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageGenerationStreamEvent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/images/edits": {
+      "post": {
+        "operationId": "createImageEdit",
+        "tags": [
+          "Images"
+        ],
+        "summary": "Create image edit",
+        "description": "Creates an edited or extended image given one or more source images and a text prompt.\nThis endpoint supports `gpt-image-1` and `dall-e-2`.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateImageEditRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully edited image(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImagesResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageEditStreamEvent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitExceeded"
+          }
+        }
+      }
+    },
+    "/images/variations": {
+      "post": {
+        "operationId": "createImageVariation",
+        "tags": [
+          "Images"
+        ],
+        "summary": "Create image variation",
+        "description": "Creates variations of a given image. Currently only supports `dall-e-2`.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateImageVariationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully created image variation(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImagesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/audio/speech": {
+      "post": {
+        "operationId": "createSpeech",
+        "tags": [
+          "Audio"
+        ],
+        "summary": "Create speech",
+        "description": "Generates audio from the input text using text-to-speech models.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSpeechRequest"
+              },
+              "examples": {
+                "basic": {
+                  "summary": "Basic speech generation",
+                  "value": {
+                    "model": "gpt-4o-mini-tts",
+                    "input": "The quick brown fox jumped over the lazy dog.",
+                    "voice": "alloy"
+                  }
+                },
+                "streaming": {
+                  "summary": "Streaming speech with SSE",
+                  "value": {
+                    "model": "gpt-4o-mini-tts",
+                    "input": "Hello, world!",
+                    "voice": "shimmer",
+                    "stream_format": "sse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully generated speech audio",
+            "headers": {
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "chunked"
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeechStreamEvent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/audio/transcriptions": {
+      "post": {
+        "operationId": "createTranscription",
+        "tags": [
+          "Audio"
+        ],
+        "summary": "Create transcription",
+        "description": "Transcribes audio into text. Supports various response formats including JSON, verbose JSON,\ndiarized JSON (speaker identification), and streaming.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTranscriptionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully transcribed audio",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TranscriptionResponseJson"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TranscriptionResponseVerboseJson"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TranscriptionResponseDiarizedJson"
+                    }
+                  ]
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranscriptionStreamEvent"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/audio/translations": {
+      "post": {
+        "operationId": "createTranslation",
+        "tags": [
+          "Audio"
+        ],
+        "summary": "Create translation",
+        "description": "Translates audio from any supported language into English text.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTranslationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully translated audio",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TranslationResponseJson"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TranslationResponseVerboseJson"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/music/generations": {
+      "post": {
+        "operationId": "createMusic",
+        "tags": [
+          "Music"
+        ],
+        "summary": "Create music",
+        "description": "Generates music from a text prompt. Supports Suno AI and other music generation models.\n\n**Note**: This endpoint returns a task ID for async processing. Use the status endpoint\nto check generation progress and retrieve the final audio file.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMusicRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Music generation task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicTaskResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/music/generations/{task_id}": {
+      "get": {
+        "operationId": "getMusicStatus",
+        "tags": [
+          "Music"
+        ],
+        "summary": "Get music generation status",
+        "description": "Retrieves the status and result of a music generation task.\n",
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The task ID returned from the music generation request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Task status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicStatusResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/video/generations": {
+      "post": {
+        "operationId": "createVideo",
+        "tags": [
+          "Video"
+        ],
+        "summary": "Create video",
+        "description": "Generates video from text prompt or images. Supports various video generation models.\n\n**Note**: This is a planned feature. Implementation details may change.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVideoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Video generation task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoTaskResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "501": {
+            "description": "Not implemented yet"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "API key for authentication"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Bearer token authentication"
+      }
+    },
+    "schemas": {
+      "CreateImageRequest": {
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "A text description of the desired image(s). Maximum length:\n- 32000 characters for `gpt-image-1`\n- 4000 characters for `dall-e-3`\n- 1000 characters for `dall-e-2`\n",
+            "example": "A cute baby sea otter",
+            "maxLength": 32000
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "dall-e-2",
+              "dall-e-3",
+              "gpt-image-1",
+              "gpt-image-1-mini",
+              "midjourney",
+              "flux",
+              "stable-diffusion"
+            ],
+            "default": "dall-e-2",
+            "description": "The model to use for image generation",
+            "nullable": true
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 1,
+            "description": "The number of images to generate. Must be between 1 and 10.\nFor `dall-e-3`, only `n=1` is supported.\n",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "256x256",
+              "512x512",
+              "1024x1024",
+              "1536x1024",
+              "1024x1536",
+              "1792x1024",
+              "1024x1792"
+            ],
+            "default": "auto",
+            "description": "The size of the generated images:\n- `gpt-image-1`: `1024x1024`, `1536x1024` (landscape), `1024x1536` (portrait), or `auto` (default)\n- `dall-e-2`: `256x256`, `512x512`, or `1024x1024`\n- `dall-e-3`: `1024x1024`, `1792x1024`, or `1024x1792`\n",
+            "nullable": true
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "hd",
+              "low",
+              "medium",
+              "high",
+              "auto"
+            ],
+            "default": "auto",
+            "description": "The quality of the image that will be generated:\n- `auto` (default): automatically select the best quality\n- `high`, `medium`, `low`: supported for `gpt-image-1`\n- `hd`, `standard`: supported for `dall-e-3`\n- `standard`: only option for `dall-e-2`\n",
+            "nullable": true
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "url",
+              "b64_json"
+            ],
+            "default": "url",
+            "description": "The format in which generated images are returned. Must be one of `url` or `b64_json`.\nURLs are only valid for 60 minutes after generation.\nNote: `gpt-image-1` always returns base64-encoded images.\n",
+            "nullable": true
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg",
+              "webp"
+            ],
+            "default": "png",
+            "description": "The format in which the generated images are returned.\nOnly supported for `gpt-image-1`. Must be one of `png`, `jpeg`, or `webp`.\n",
+            "nullable": true
+          },
+          "output_compression": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "default": 100,
+            "description": "The compression level (0-100%) for generated images.\nOnly supported for `gpt-image-1` with `webp` or `jpeg` output formats.\n",
+            "nullable": true
+          },
+          "stream": {
+            "type": "boolean",
+            "default": false,
+            "description": "Generate the image in streaming mode. Only supported for `gpt-image-1`.\n",
+            "nullable": true
+          },
+          "background": {
+            "type": "string",
+            "enum": [
+              "transparent",
+              "opaque",
+              "auto"
+            ],
+            "default": "auto",
+            "description": "Sets transparency for the background. Only supported for `gpt-image-1`.\n- `transparent`: requires PNG or WebP output format\n- `opaque`: solid background\n- `auto` (default): model determines best background\n",
+            "nullable": true
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "vivid",
+              "natural"
+            ],
+            "default": "vivid",
+            "description": "The style of generated images. Only supported for `dall-e-3`.\n- `vivid`: hyper-real and dramatic images\n- `natural`: more natural, less hyper-real images\n",
+            "nullable": true
+          },
+          "moderation": {
+            "type": "string",
+            "enum": [
+              "low",
+              "auto"
+            ],
+            "default": "auto",
+            "description": "Content moderation level for `gpt-image-1`:\n- `low`: less restrictive filtering\n- `auto` (default): standard filtering\n",
+            "nullable": true
+          },
+          "user": {
+            "type": "string",
+            "description": "A unique identifier representing your end-user, for monitoring and abuse detection.\n",
+            "example": "user-1234"
+          }
+        }
+      },
+      "CreateImageEditRequest": {
+        "type": "object",
+        "required": [
+          "image",
+          "prompt"
+        ],
+        "properties": {
+          "image": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "minItems": 1,
+            "description": "One or more source images to edit. Must be valid PNG files, less than 4MB each.\n"
+          },
+          "mask": {
+            "type": "string",
+            "format": "binary",
+            "description": "An image indicating which areas of `image` to edit. Must be a valid PNG file,\nless than 4MB, and have the same dimensions as `image`.\n",
+            "nullable": true
+          },
+          "prompt": {
+            "type": "string",
+            "description": "A text description of the desired edited image(s)",
+            "example": "A cute baby sea otter wearing a beret",
+            "maxLength": 32000
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "dall-e-2",
+              "gpt-image-1"
+            ],
+            "default": "dall-e-2",
+            "description": "The model to use for image editing",
+            "nullable": true
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 1,
+            "description": "The number of images to generate",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "256x256",
+              "512x512",
+              "1024x1024"
+            ],
+            "default": "1024x1024",
+            "nullable": true
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "url",
+              "b64_json"
+            ],
+            "default": "url",
+            "nullable": true
+          },
+          "stream": {
+            "type": "boolean",
+            "default": false,
+            "description": "Generate the edit in streaming mode (gpt-image-1 only)",
+            "nullable": true
+          },
+          "user": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateImageVariationRequest": {
+        "type": "object",
+        "required": [
+          "image"
+        ],
+        "properties": {
+          "image": {
+            "type": "string",
+            "format": "binary",
+            "description": "The image to use as the basis for variations. Must be a valid PNG file,\nless than 4MB, and square.\n"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "dall-e-2"
+            ],
+            "default": "dall-e-2",
+            "description": "Only `dall-e-2` is supported",
+            "nullable": true
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 1,
+            "description": "The number of variations to generate",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "enum": [
+              "256x256",
+              "512x512",
+              "1024x1024"
+            ],
+            "default": "1024x1024",
+            "nullable": true
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "url",
+              "b64_json"
+            ],
+            "default": "url",
+            "nullable": true
+          },
+          "user": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ImagesResponse": {
+        "type": "object",
+        "properties": {
+          "created": {
+            "type": "integer",
+            "description": "Unix timestamp of when the image(s) were created"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImageObject"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/UsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "ImageObject": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the generated image (valid for 60 minutes)",
+            "nullable": true
+          },
+          "b64_json": {
+            "type": "string",
+            "description": "The base64-encoded JSON of the generated image",
+            "nullable": true
+          },
+          "revised_prompt": {
+            "type": "string",
+            "description": "The prompt that was used to generate the image (if modified)",
+            "nullable": true
+          }
+        }
+      },
+      "ImageGenerationStreamEvent": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "image_generation.partial_image",
+              "image_generation.completed"
+            ]
+          },
+          "b64_json": {
+            "type": "string",
+            "description": "Base64-encoded partial or complete image"
+          },
+          "partial_image_index": {
+            "type": "integer",
+            "description": "Index of the partial image in streaming sequence",
+            "nullable": true
+          },
+          "usage": {
+            "$ref": "#/components/schemas/UsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "ImageEditStreamEvent": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "image_edit.partial_image",
+              "image_edit.completed"
+            ]
+          },
+          "b64_json": {
+            "type": "string"
+          },
+          "partial_image_index": {
+            "type": "integer",
+            "nullable": true
+          },
+          "usage": {
+            "$ref": "#/components/schemas/UsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "CreateSpeechRequest": {
+        "type": "object",
+        "required": [
+          "model",
+          "input",
+          "voice"
+        ],
+        "properties": {
+          "model": {
+            "type": "string",
+            "enum": [
+              "tts-1",
+              "tts-1-hd",
+              "gpt-4o-mini-tts",
+              "gpt-4o-tts"
+            ],
+            "description": "The TTS model to use"
+          },
+          "input": {
+            "type": "string",
+            "maxLength": 4096,
+            "description": "The text to generate audio for"
+          },
+          "voice": {
+            "type": "string",
+            "enum": [
+              "alloy",
+              "ash",
+              "ballad",
+              "coral",
+              "echo",
+              "fable",
+              "onyx",
+              "nova",
+              "sage",
+              "shimmer",
+              "verse"
+            ],
+            "description": "The voice to use for generation"
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "mp3",
+              "opus",
+              "aac",
+              "flac",
+              "wav",
+              "pcm"
+            ],
+            "default": "mp3",
+            "description": "The format to return the audio in",
+            "nullable": true
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0.25,
+            "maximum": 4.0,
+            "default": 1.0,
+            "description": "The speed of the generated audio (0.25 to 4.0)",
+            "nullable": true
+          },
+          "stream_format": {
+            "type": "string",
+            "enum": [
+              "raw",
+              "sse"
+            ],
+            "description": "The streaming format:\n- `raw`: standard binary streaming\n- `sse`: server-sent events format\n",
+            "nullable": true
+          }
+        }
+      },
+      "CreateTranscriptionRequest": {
+        "type": "object",
+        "required": [
+          "file",
+          "model"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "The audio file to transcribe. Supported formats: mp3, mp4, mpeg, mpga, m4a, wav, webm.\nMaximum file size: 25MB.\n"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "whisper-1",
+              "gpt-4o-transcribe",
+              "gpt-4o-mini-transcribe",
+              "gpt-4o-transcribe-diarize"
+            ],
+            "description": "The transcription model to use"
+          },
+          "language": {
+            "type": "string",
+            "description": "The language of the input audio in ISO-639-1 format (e.g., 'en', 'es').\nSupplying the input language improves accuracy and latency.\n",
+            "nullable": true
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Optional text to guide the model's style or continue a previous audio segment.\n",
+            "nullable": true
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "text",
+              "srt",
+              "verbose_json",
+              "vtt",
+              "diarized_json"
+            ],
+            "default": "json",
+            "description": "The format of the transcript output",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0,
+            "description": "The sampling temperature (0 to 1)",
+            "nullable": true
+          },
+          "timestamp_granularities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "word",
+                "segment"
+              ]
+            },
+            "description": "The timestamp granularities to include in the response.\nOnly applicable for `verbose_json` format.\n",
+            "nullable": true
+          },
+          "stream": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stream the transcription as it's processed",
+            "nullable": true
+          },
+          "chunking_strategy": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "fixed"
+            ],
+            "description": "Strategy for chunking long audio files (diarization only):\n- `auto`: automatically determine chunk size\n- `fixed`: use fixed chunk size\n",
+            "nullable": true
+          },
+          "known_speaker_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of known speaker names for diarization",
+            "nullable": true
+          },
+          "known_speaker_references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of speaker voice reference audio (base64 encoded)",
+            "nullable": true
+          }
+        }
+      },
+      "CreateTranslationRequest": {
+        "type": "object",
+        "required": [
+          "file",
+          "model"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "The audio file to translate (translates to English)"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "whisper-1"
+            ],
+            "description": "The translation model to use"
+          },
+          "prompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "response_format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "text",
+              "srt",
+              "verbose_json",
+              "vtt"
+            ],
+            "default": "json",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0,
+            "nullable": true
+          }
+        }
+      },
+      "TranscriptionResponseJson": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The transcribed text"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/AudioUsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "TranscriptionResponseVerboseJson": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string",
+            "enum": [
+              "transcribe"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "The detected language"
+          },
+          "duration": {
+            "type": "number",
+            "description": "Duration of the audio in seconds"
+          },
+          "text": {
+            "type": "string",
+            "description": "The transcribed text"
+          },
+          "words": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionWord"
+            },
+            "nullable": true
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranscriptionSegment"
+            },
+            "nullable": true
+          },
+          "usage": {
+            "$ref": "#/components/schemas/AudioUsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "TranscriptionResponseDiarizedJson": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string",
+            "enum": [
+              "transcribe"
+            ]
+          },
+          "duration": {
+            "type": "number",
+            "description": "Duration of the audio in seconds"
+          },
+          "text": {
+            "type": "string",
+            "description": "The full transcribed text with speaker labels"
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DiarizedSegment"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/AudioUsageInfo",
+            "nullable": true
+          }
+        }
+      },
+      "TranscriptionWord": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string"
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          }
+        }
+      },
+      "TranscriptionSegment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "seek": {
+            "type": "integer"
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          },
+          "tokens": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "temperature": {
+            "type": "number"
+          },
+          "avg_logprob": {
+            "type": "number"
+          },
+          "compression_ratio": {
+            "type": "number"
+          },
+          "no_speech_prob": {
+            "type": "number"
+          }
+        }
+      },
+      "DiarizedSegment": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "transcript.text.segment"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string",
+            "description": "The identified speaker name or ID"
+          }
+        }
+      },
+      "TranslationResponseJson": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The translated text (in English)"
+          }
+        }
+      },
+      "TranslationResponseVerboseJson": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string",
+            "enum": [
+              "translate"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "The source language detected"
+          },
+          "duration": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "TranscriptionStreamEvent": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "transcript.text.delta",
+              "transcript.completed"
+            ]
+          },
+          "delta": {
+            "type": "string",
+            "description": "Incremental transcription text",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "description": "Full transcription text (on completed)",
+            "nullable": true
+          }
+        }
+      },
+      "SpeechStreamEvent": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "speech.audio_delta",
+              "speech.completed"
+            ]
+          },
+          "delta": {
+            "type": "string",
+            "format": "byte",
+            "description": "Base64-encoded audio chunk",
+            "nullable": true
+          }
+        }
+      },
+      "CreateMusicRequest": {
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "Text description of the music to generate",
+            "example": "An upbeat electronic dance track with heavy bass"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "suno-v3",
+              "suno-v3.5"
+            ],
+            "default": "suno-v3.5",
+            "nullable": true
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 300,
+            "description": "Duration of the music in seconds (10-300)",
+            "nullable": true
+          },
+          "style": {
+            "type": "string",
+            "description": "Musical style or genre",
+            "nullable": true
+          },
+          "instrumental": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to generate instrumental music (no vocals)",
+            "nullable": true
+          }
+        }
+      },
+      "MusicTaskResponse": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "Unique identifier for the music generation task"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "processing"
+            ],
+            "description": "Current status of the task"
+          },
+          "estimated_completion_time": {
+            "type": "integer",
+            "description": "Estimated time to completion in seconds",
+            "nullable": true
+          }
+        }
+      },
+      "MusicStatusResponse": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "processing",
+              "completed",
+              "failed"
+            ]
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Progress percentage (0-100)"
+          },
+          "result": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to download the generated music"
+              },
+              "duration": {
+                "type": "number",
+                "description": "Actual duration of the generated music"
+              },
+              "format": {
+                "type": "string",
+                "description": "Audio format (e.g., mp3, wav)"
+              }
+            }
+          },
+          "error": {
+            "type": "string",
+            "nullable": true,
+            "description": "Error message if the task failed"
+          }
+        }
+      },
+      "CreateVideoRequest": {
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "Text description of the video to generate"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "runway-gen3",
+              "stability-video"
+            ],
+            "nullable": true
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 10,
+            "description": "Duration of the video in seconds",
+            "nullable": true
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "512x512",
+              "768x768",
+              "1024x1024",
+              "1280x720",
+              "1920x1080"
+            ],
+            "default": "1280x720",
+            "nullable": true
+          },
+          "fps": {
+            "type": "integer",
+            "enum": [
+              24,
+              30,
+              60
+            ],
+            "default": 30,
+            "description": "Frames per second",
+            "nullable": true
+          },
+          "source_image": {
+            "type": "string",
+            "format": "binary",
+            "description": "Optional source image for image-to-video generation",
+            "nullable": true
+          }
+        }
+      },
+      "VideoTaskResponse": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "processing"
+            ]
+          },
+          "estimated_completion_time": {
+            "type": "integer",
+            "nullable": true
+          }
+        }
+      },
+      "UsageInfo": {
+        "type": "object",
+        "properties": {
+          "total_tokens": {
+            "type": "integer"
+          },
+          "input_tokens": {
+            "type": "integer"
+          },
+          "output_tokens": {
+            "type": "integer"
+          },
+          "input_tokens_details": {
+            "type": "object",
+            "properties": {
+              "text_tokens": {
+                "type": "integer"
+              },
+              "image_tokens": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "AudioUsageInfo": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "tokens",
+              "duration"
+            ]
+          },
+          "input_tokens": {
+            "type": "integer",
+            "nullable": true
+          },
+          "input_token_details": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "text_tokens": {
+                "type": "integer"
+              },
+              "audio_tokens": {
+                "type": "integer"
+              }
+            }
+          },
+          "output_tokens": {
+            "type": "integer",
+            "nullable": true
+          },
+          "total_tokens": {
+            "type": "integer",
+            "nullable": true
+          },
+          "seconds": {
+            "type": "number",
+            "nullable": true,
+            "description": "Duration in seconds (for duration-based usage)"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "A human-readable error message"
+              },
+              "type": {
+                "type": "string",
+                "description": "Error type identifier"
+              },
+              "code": {
+                "type": "string",
+                "description": "Error code",
+                "nullable": true
+              },
+              "param": {
+                "type": "string",
+                "description": "The parameter that caused the error",
+                "nullable": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request - Invalid parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "error": {
+                "message": "Invalid parameter: prompt is required",
+                "type": "invalid_request_error",
+                "code": "invalid_parameter",
+                "param": "prompt"
+              }
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized - Invalid or missing API key",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "error": {
+                "message": "Invalid API key provided",
+                "type": "invalid_request_error",
+                "code": "invalid_api_key"
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "error": {
+                "message": "The requested resource was not found",
+                "type": "invalid_request_error",
+                "code": "not_found"
+              }
+            }
+          }
+        }
+      },
+      "RateLimitExceeded": {
+        "description": "Rate limit exceeded",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "error": {
+                "message": "Rate limit exceeded. Please try again later.",
+                "type": "rate_limit_error",
+                "code": "rate_limit_exceeded"
+              }
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "example": {
+              "error": {
+                "message": "An internal server error occurred",
+                "type": "server_error",
+                "code": "internal_error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
