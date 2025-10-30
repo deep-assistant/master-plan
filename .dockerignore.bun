@@ -1,0 +1,80 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+docs/
+ARCHITECTURE.md
+LICENSE
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage
+.nyc_output
+*.test.js
+*.spec.js
+test/
+tests/
+__tests__/
+
+# Build outputs
+dist
+build
+out
+
+# Editor directories and files
+.vscode
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+.cache
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+azure-pipelines.yml
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Development files
+.prettierrc*
+.eslintrc*
+.editorconfig
+
+# Other
+README-resale.md
+README-user.md

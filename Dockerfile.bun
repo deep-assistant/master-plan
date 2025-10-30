@@ -1,0 +1,83 @@
+# Multi-stage Dockerfile for Bun-based API Gateway
+# This replaces the Node.js runtime with Bun for improved performance
+
+# =============================================================================
+# Base Stage - Use Bun base image
+# =============================================================================
+FROM oven/bun:1.1.42-alpine AS base
+LABEL maintainer="Deep.Assistant Team"
+LABEL description="API Gateway with Bun runtime"
+
+# =============================================================================
+# Install Stage - Development Dependencies
+# =============================================================================
+FROM base AS install
+WORKDIR /app
+
+# Create temp directory for dev dependencies
+RUN mkdir -p /temp/dev
+COPY package.json bun.lockb* /temp/dev/
+WORKDIR /temp/dev
+
+# Install all dependencies (including dev dependencies)
+# --frozen-lockfile ensures exact versions from lockfile
+RUN bun install --frozen-lockfile
+
+# Create temp directory for production dependencies
+RUN mkdir -p /temp/prod
+COPY package.json bun.lockb* /temp/prod/
+WORKDIR /temp/prod
+
+# Install only production dependencies
+RUN bun install --frozen-lockfile --production
+
+# =============================================================================
+# Build Stage - Prepare Application
+# =============================================================================
+FROM base AS build
+WORKDIR /app
+
+# Copy dev dependencies for any build steps
+COPY --from=install /temp/dev/node_modules node_modules
+
+# Copy application source
+COPY . .
+
+# Run any build steps if needed (currently none for this project)
+# RUN bun run build
+
+# =============================================================================
+# Release Stage - Production Image
+# =============================================================================
+FROM base AS release
+WORKDIR /app
+
+# Create non-root user for security
+RUN addgroup --system --gid 1001 bunuser && \
+    adduser --system --uid 1001 bunuser
+
+# Create necessary directories with proper permissions
+RUN mkdir -p /app/src/db && \
+    mkdir -p /app/logs && \
+    chown -R bunuser:bunuser /app
+
+# Copy production dependencies
+COPY --from=install --chown=bunuser:bunuser /temp/prod/node_modules node_modules
+
+# Copy application code
+COPY --from=build --chown=bunuser:bunuser /app/src ./src
+COPY --from=build --chown=bunuser:bunuser /app/scripts ./scripts
+COPY --from=build --chown=bunuser:bunuser /app/package.json ./
+
+# Switch to non-root user
+USER bunuser
+
+# Expose the application port
+EXPOSE 8088
+
+# Add health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD bun -e "fetch('http://localhost:8088/health').catch(() => process.exit(1))" || exit 1
+
+# Start the application
+CMD ["bun", "run", "src/server.js"]
